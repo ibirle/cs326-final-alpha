@@ -1,6 +1,6 @@
-Milestone 0
-Application: Bake Off (work in progress)
-Team Name: Alpha
+Milestone 0  
+Application: Bake Off (work in progress)  
+Team Name: Alpha  
 
 
 ## Team Overview
