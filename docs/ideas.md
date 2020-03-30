@@ -18,26 +18,26 @@ No similar website exists. There are similar things online, but they are all on 
 
 Important Components
 
-Create competitions
-    Link to recipe
-    Description and rules
-    Add a start and end time to enter
-    Add a start and end time to vote
-    Restricted to admins
-Browse competitions
-    View all running competitions
-    See details about a particular competition
-Create user accounts
-    Create account page
-    Login page
-    Basic info (Username, baking skill level, etc.)
-Enter into competition
-    View recipe
-    Upload images as entry
-    Allow others to vote for winner
-Ending competition
-    Select the winner based on  the most votes
-    Add badges to accounts of winners
-Tips / question section
-    Unique section under each competition
-    Allow any user to post
+Create competitions  
+    Link to recipe  
+    Description and rules  
+    Add a start and end time to enter  
+    Add a start and end time to vote  
+    Restricted to admins  
+Browse competitions  
+    View all running competitions  
+    See details about a particular competition  
+Create user accounts  
+    Create account page  
+    Login page  
+    Basic info (Username, baking skill level, etc.)  
+Enter into competition  
+    View recipe  
+    Upload images as entry  
+    Allow others to vote for winner  
+Ending competition  
+    Select the winner based on  the most votes  
+    Add badges to accounts of winners  
+Tips / question section  
+    Unique section under each competition  
+    Allow any user to post  
