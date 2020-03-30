@@ -3,12 +3,12 @@ Application: Bake Off (work in progress)
 Team Name: Alpha
 
 
-Team Overview
+##Team Overview
 
 Names: Alain Duplan, Alex Winter, Ian Birle
 Usernames: alain-duplan, alexmwinter, ibirle
 
-Innovative Idea
+##Innovative Idea
 
 A website that will host baking competitions. There will be a given recipe for each competition and users can upload pictures of what they baked. Other users can then vote on which person baked the best looking version of that recipe. There will also be a section for user's tips and tricks / questions people have about the recipe. The idea is to bring bakers together and let them learn from others' successes and mistakes.
 
@@ -16,28 +16,28 @@ Veterans and novices to baking alike can try their hand at weekly and/or daily b
 
 No similar website exists. There are similar things online, but they are all on facebook groups or similar platforms.
 
-Important Components
+##Important Components
 
 Create competitions  
-    Link to recipe  
-    Description and rules  
-    Add a start and end time to enter  
-    Add a start and end time to vote  
-    Restricted to admins  
+&nbsp;&nbsp;&nbsp;&nbsp;Link to recipe  
+&nbsp;&nbsp;&nbsp;&nbsp;Description and rules  
+&nbsp;&nbsp;&nbsp;&nbsp;Add a start and end time to enter  
+&nbsp;&nbsp;&nbsp;&nbsp;Add a start and end time to vote  
+&nbsp;&nbsp;&nbsp;&nbsp;Restricted to admins  
 Browse competitions  
-    View all running competitions  
-    See details about a particular competition  
+&nbsp;&nbsp;&nbsp;&nbsp;View all running competitions  
+&nbsp;&nbsp;&nbsp;&nbsp;See details about a particular competition  
 Create user accounts  
-    Create account page  
-    Login page  
-    Basic info (Username, baking skill level, etc.)  
+&nbsp;&nbsp;&nbsp;&nbsp;Create account page  
+&nbsp;&nbsp;&nbsp;&nbsp;Login page  
+&nbsp;&nbsp;&nbsp;&nbsp;Basic info (Username, baking skill level, etc.)  
 Enter into competition  
-    View recipe  
-    Upload images as entry  
-    Allow others to vote for winner  
+&nbsp;&nbsp;&nbsp;&nbsp;View recipe  
+&nbsp;&nbsp;&nbsp;&nbsp;Upload images as entry  
+&nbsp;&nbsp;&nbsp;&nbsp;Allow others to vote for winner  
 Ending competition  
-    Select the winner based on  the most votes  
-    Add badges to accounts of winners  
+&nbsp;&nbsp;&nbsp;&nbsp;Select the winner based on  the most votes  
+&nbsp;&nbsp;&nbsp;&nbsp;Add badges to accounts of winners  
 Tips / question section  
-    Unique section under each competition  
-    Allow any user to post  
+&nbsp;&nbsp;&nbsp;&nbsp;Unique section under each competition  
+&nbsp;&nbsp;&nbsp;&nbsp;Allow any user to post  
