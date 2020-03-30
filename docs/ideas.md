@@ -3,12 +3,12 @@ Application: Bake Off (work in progress)
 Team Name: Alpha
 
 
-##Team Overview
+## Team Overview
 
-Names: Alain Duplan, Alex Winter, Ian Birle
+Names: Alain Duplan, Alex Winter, Ian Birle  
 Usernames: alain-duplan, alexmwinter, ibirle
 
-##Innovative Idea
+## Innovative Idea
 
 A website that will host baking competitions. There will be a given recipe for each competition and users can upload pictures of what they baked. Other users can then vote on which person baked the best looking version of that recipe. There will also be a section for user's tips and tricks / questions people have about the recipe. The idea is to bring bakers together and let them learn from others' successes and mistakes.
 
@@ -16,7 +16,7 @@ Veterans and novices to baking alike can try their hand at weekly and/or daily b
 
 No similar website exists. There are similar things online, but they are all on facebook groups or similar platforms.
 
-##Important Components
+## Important Components
 
 Create competitions  
 &nbsp;&nbsp;&nbsp;&nbsp;Link to recipe  
