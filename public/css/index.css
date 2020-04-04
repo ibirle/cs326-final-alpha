@@ -1,0 +1,17 @@
+.jumbotron {
+    background-color: palegoldenrod;
+    max-height: 200px;
+}
+
+.horizontal-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginButton {
+    float: right;
+    position: relative;
+    top: -45px;
+    margin-right: 2%;
+}
