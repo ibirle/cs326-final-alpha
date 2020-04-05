@@ -1,3 +1,11 @@
 #banner{
     background-color: palegoldenrod;
 }
+
+#weekly{
+    padding-top: 3%;
+}
+
+h2{
+    text-decoration: underline;
+}
