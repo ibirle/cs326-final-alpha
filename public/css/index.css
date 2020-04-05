@@ -21,9 +21,26 @@
 }
 
 #weekly{
-    padding-top: 3%;
+    padding-top: 2%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 h2{
     text-decoration: underline;
 }
+
+#weeklyCard {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.centered {
+    padding: 1% 2% 1% 2%;
+    background: rgba(255, 255, 255, 0.60);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
