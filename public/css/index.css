@@ -43,6 +43,7 @@ h2{
     padding-right: 10%;
     position: absolute;
     text-align: center;
+    align-items: center;
 }
 
 .wide-img-card {
@@ -51,34 +52,30 @@ h2{
 }
 
 #daily {
-    align-items: center;
     padding-top: 1%;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 8vw;
+    padding-right: 8vw;
     text-align: center;
 }
 
-#daily-header {
-}
-
 .daily-card {
-    max-width: 320px;
-    max-height: 180px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .daily-cards {
     padding-top: 1%;
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
-.no-gutters {
+.no-gutter {
     margin-right: 0;
     margin-left: 0;
+  }
   
-    > .col,
-    > [class*="col-"] {
-      padding-right: 0;
-      padding-left: 0;
-    }
+  .no-gutter > [class*="col-"] {
+    padding: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
   }
