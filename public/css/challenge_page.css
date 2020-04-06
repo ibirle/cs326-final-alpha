@@ -18,3 +18,17 @@
     padding-top: 1%;
     padding-left: 5%;
 }
+
+.nav-div{
+    padding: 3%;
+}
+
+#entry-tab{
+    padding-left: 20%;
+    padding-right: 10%;
+}
+
+#comment-tab{
+    padding-left: 10%;
+    padding-right: 20%;
+}
