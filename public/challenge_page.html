@@ -38,17 +38,26 @@
         <div class="nav-div">
             <div class="row no-gutter">
                 <div class="col-4 d-flex justify-content-center align-self-center">
-                    <button id="entry-tab" type="button" class="btn btn-dark selected">Entries</button>
+                    <button id="entry-tab" type="button" class="selected btn btn-dark" onclick="entryTab()">Entries</button>
                 </div>
                 <div class="col-4 d-flex justify-content-center align-self-center">
-                    <button id="submit-tab" type="button" class="btn btn-dark">Submit</button>
+                    <button id="submit-tab" type="button" class="btn btn-dark" onclick="submitTab()">Submit</button>
                 </div>
                 <div class="col-4 d-flex justify-content-center align-self-center">
-                    <button id="comment-tab" type="button" class="btn btn-dark">Comments</button>
+                    <button id="comment-tab" type="button" class="btn btn-dark" onclick="commentTab()">Comments</button>
                 </div>
             </div>
         </div>
-        <div class="row no-gutter entry-cards">
+        <div id="submit-tab-content">
+            <p>Nunc eget nisi aliquam lacus ullamcorper condimentum. Pellentesque sapien dui, tincidunt a accumsan aliquam, placerat tincidunt eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non condimentum magna.
+                Nunc eget nisi aliquam lacus ullamcorper condimentum. Pellentesque sapien dui, tincidunt a accumsan aliquam, placerat tincidunt eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non condimentum magna.
+            </p>
+        </div>
+        <div id="comment-tab-content">
+            <p>Nunc eget am lacus ullamcorper condimentum. Pellentesque sapien dui, tincidunt a accumsan aliquam, placerat tincidunt eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non condimentum magna.
+            </p>
+        </div>
+        <div id="entry-tab-content" class="row no-gutter entry-cards">
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div id="carouselExampleIndicators" class="carousel slide">
                     <ol class="carousel-indicators">
@@ -280,6 +289,6 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    
+        <script src="javascript/challenge_page.js"></script>
     </footer>
 </html>
