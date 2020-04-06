@@ -46,7 +46,7 @@ h2{
 }
 
 .wide-img-card {
-    min-height: 200px;
+    min-height: 150px;
     opacity: .4;
 }
 
@@ -62,10 +62,25 @@ h2{
 }
 
 .daily-card {
-    max-width: 320px;
-    max-height: 180px;
+    margin-top: 3%;
+    margin-right: 5%;
+    margin-left: 5%;
 }
 
 .daily-cards {
     padding-top: 1%;
+}
+
+.small-img-card {
+    opacity: .4;
+}
+
+.small-centered {
+    height: 100%;
+    width: 100%;
+    padding-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    position: absolute;
+    text-align: center;
 }
