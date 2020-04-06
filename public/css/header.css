@@ -1,0 +1,21 @@
+#banner{
+    background-color: palegoldenrod;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#homeButton {
+    padding-left: 5%;
+    font-weight: bold;
+    font-size: 20pt;
+}
+
+#loginButton {
+    padding-right: 5%;
+}
+
+#titleLogo {
+    font-size: 50pt;
+    font-weight: bold;
+}

@@ -1,0 +1,20 @@
+#recipe-title {
+    text-align: center;
+    padding-top: 2%;
+}
+
+#recipe-block {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+}
+
+.recipe-img {
+    border-radius: 10px;
+    max-width: 25%;
+}
+
+#recipe-description {
+    padding-top: 1%;
+    padding-left: 5%;
+}

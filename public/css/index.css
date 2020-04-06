@@ -1,33 +1,11 @@
-#banner{
-    background-color: palegoldenrod;
-    padding-top: 1.5%;
-    padding-bottom: 1.5%; 
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-#homeButton {
-    padding-left: 5%;
-    font-weight: bold;
-    font-size: 20pt;
-}
-
-#loginButton {
-    padding-right: 5%;
-}
-
-#titleLogo {
-    font-size: 50pt;
-    font-weight: bold;
-}
-
-#weekly{
+#weekly {
     padding-top: 1%;
     padding-left: 10%;
     padding-right: 10%;
     text-align: center;
 }
 
-h2{
+h2 {
     text-decoration: underline;
 }
 
@@ -47,7 +25,7 @@ h2{
 }
 
 .wide-img-card {
-    min-height: 200px;
+    min-height: 150px;
     opacity: .4;
 }
 
@@ -60,8 +38,6 @@ h2{
 
 .daily-card {
     width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .daily-cards {
@@ -79,3 +55,18 @@ h2{
     align-items: center;
     justify-content: inherit;
   }
+
+.small-img-card {
+    opacity: .4;
+}
+
+.small-centered {
+    height: 100%;
+    width: 100%;
+    padding-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    position: absolute;
+    text-align: center;
+}
+
