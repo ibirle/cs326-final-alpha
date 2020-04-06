@@ -68,4 +68,17 @@ h2{
 
 .daily-cards {
     padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
