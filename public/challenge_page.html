@@ -20,7 +20,7 @@
                 <span class="horizontal-center">Bake&nbspOff!</span>
             </div>
             <div id="loginButton" class="col-4 d-flex justify-content-end align-self-center">
-                <a href="account.html"><button type="button" class="btn btn-dark">Login</button></a>
+                <a href="login.html"><button type="button" class="btn btn-dark">Login</button></a>
             </div>
         </div>
         <div id="recipe">
@@ -36,17 +36,17 @@
             </div>
         </div>
         <div class="nav-div">
-            <ul class="nav nav-pills nav-justified">
-                <li id="entry-tab" class="nav-item active" onclick="entryTab()">
-                    <a id="entry-tab-link" class="nav-link active">Entries</a>
-                </li>
-                <li id="submit-tab" class="nav-item" onclick="submitTab()">
-                    <a id="submit-tab-link"class="nav-link">Submit</a>
-                </li>
-                <li id="comment-tab" class="nav-item" onclick="commentTab()">
-                    <a id="comment-tab-link" class="nav-link">Comments</a>
-                </li>
-            </ul>
+            <div class="row no-gutter">
+                <div class="col-4 d-flex justify-content-center align-self-center">
+                    <button id="entry-tab" type="button" class="btn btn-dark" onclick="entryTab()">Entries</button>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-self-center">
+                    <button id="submit-tab" type="button" class="btn btn-dark" onclick="submitTab()">Submit</button>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-self-center">
+                    <button id="comment-tab" type="button" class="btn btn-dark" onclick="commentTab()">Comments</button>
+                </div>
+            </div>
         </div>
         <div id="submit-tab-content">
             <p>Nunc eget nisi aliquam lacus ullamcorper condimentum. Pellentesque sapien dui, tincidunt a accumsan aliquam, placerat tincidunt eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non condimentum magna.

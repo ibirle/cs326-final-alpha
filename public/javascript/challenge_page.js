@@ -8,9 +8,9 @@ function entryTab()
     $("#submit-tab-content").hide();
     $("#comment-tab-content").hide();
 
-    $("#entry-tab-link").addClass("active");
-    $("#submit-tab-link").removeClass("active");
-    $("#comment-tab-link").removeClass("active");
+    $("#entry-tab").addClass("selected");
+    $("#submit-tab").removeClass("selected");
+    $("#comment-tab").removeClass("selected");
 }
 
 function submitTab()
@@ -19,9 +19,9 @@ function submitTab()
     $("#submit-tab-content").show();
     $("#comment-tab-content").hide();
 
-    $("#entry-tab-link").removeClass("active");
-    $("#submit-tab-link").addClass("active");
-    $("#comment-tab-link").removeClass("active");
+    $("#entry-tab").removeClass("selected");
+    $("#submit-tab").addClass("selected");
+    $("#comment-tab").removeClass("selected");
 }
 
 function commentTab()
@@ -30,9 +30,9 @@ function commentTab()
     $("#submit-tab-content").hide();
     $("#comment-tab-content").show();
 
-    $("#entry-tab-link").removeClass("active");
-    $("#submit-tab-link").removeClass("active");
-    $("#comment-tab-link").addClass("active");
+    $("#entry-tab").removeClass("selected");
+    $("#submit-tab").removeClass("selected");
+    $("#comment-tab").addClass("selected");
 }
 
 
