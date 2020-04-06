@@ -19,3 +19,8 @@
     font-size: 50pt;
     font-weight: bold;
 }
+
+.banner-row {
+    margin-right: 0;
+    margin-left: 0;
+  }
