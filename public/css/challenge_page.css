@@ -20,15 +20,64 @@
 }
 
 .nav-div{
-    padding: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 1%;
+    border-style: solid;
+    border-width: 2px;
 }
 
 #entry-tab{
-    padding-left: 20%;
+    padding-left: 10%;
     padding-right: 10%;
 }
 
 #comment-tab{
     padding-left: 10%;
-    padding-right: 20%;
+    padding-right: 10%;
+}
+
+#submit-tab{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.no-gutter {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .no-gutter > [class*="col-"] {
+    padding: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+  }
+
+.entry-cards {
+    padding-top: 1%;
+    padding-left: 8.5vw;
+    padding-right: 8.5vw;
+    text-align: center;
+}
+
+.small-img-card {
+    opacity: .6;
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-indicators li {
+    background-color: grey;
+}
+.carousel-indicators .active {
+    background-color: #000000;;
 }
