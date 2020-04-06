@@ -22,17 +22,18 @@ h2 {
     position: absolute;
     text-align: center;
     align-items: center;
+    
 }
 
 .wide-img-card {
     min-height: 150px;
-    opacity: .4;
+    opacity: .6;
 }
 
 #daily {
     padding-top: 1%;
-    padding-left: 8vw;
-    padding-right: 8vw;
+    padding-left: 8.5vw;
+    padding-right: 8.5vw;
     text-align: center;
 }
 
@@ -50,14 +51,14 @@ h2 {
   }
   
   .no-gutter > [class*="col-"] {
-    padding: 2vw;
+    padding: 1.5vw;
     display: flex;
     align-items: center;
     justify-content: inherit;
   }
 
 .small-img-card {
-    opacity: .4;
+    opacity: .6;
 }
 
 .small-centered {
