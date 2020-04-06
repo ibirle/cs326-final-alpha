@@ -29,19 +29,25 @@
     border-width: 2px;
 }
 
+.nav-pills>.nav-item {
+    
+    color: #ffffff;
+    background-color: gray;
+}
+
+.nav-pills>li.active>a:hover {
+    color: #fff;
+    background-color: black;
+}
+
 #entry-tab{
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
 #comment-tab{
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
 #submit-tab{
-    padding-left: 10%;
-    padding-right: 10%;
+
 }
 
 .no-gutter {
