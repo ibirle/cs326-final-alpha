@@ -21,9 +21,10 @@
 }
 
 #weekly{
-    padding-top: 2%;
+    padding-top: 1%;
     padding-left: 10%;
     padding-right: 10%;
+    text-align: center;
 }
 
 h2{
@@ -31,22 +32,21 @@ h2{
 }
 
 #weeklyCard {
-    text-align: center;
     margin-top: 2%;
 }
 
 .centered {
-    padding: 1% 2% 1% 2%;
-    
+    height: 100%;
+    width: 100%;
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .wide-img-card {
     min-height: 200px;
     opacity: .4;
-    background-color: white;
 }
 
