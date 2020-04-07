@@ -1,0 +1,15 @@
+#account{
+    border : 3px solid black;
+    background-color: palegoldenrod;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    position: block;
+    text-align: center;
+    align-items: center;
+    width: 75%;
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 3%;
+}
