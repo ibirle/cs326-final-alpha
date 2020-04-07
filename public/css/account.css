@@ -16,3 +16,11 @@
 #profilepic{
     width: 60%;
 }
+#linkedit{
+    color:slategray;
+}
+
+.account p{
+    font-size: 20pt;
+    font-style: italic;
+}
