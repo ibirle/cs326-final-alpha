@@ -11,7 +11,8 @@
 
 .recipe-img {
     border-radius: 10px;
-    max-width: 25%;
+    max-width: 100%;
+    float: left;
 }
 
 #recipe-description {
@@ -39,14 +40,19 @@
 .no-gutter {
     margin-right: 0;
     margin-left: 0;
-  }
+}
   
-  .no-gutter > [class*="col-"] {
+#entry-tab-content > [class*="col-"] {
     padding: 1.5vw;
     display: flex;
     align-items: center;
     justify-content: inherit;
-  }
+}
+
+#recipe-block > [class*="col-"] {
+    padding: 0;
+    padding-right: 3%;
+}
 
 .entry-cards {
     padding-top: 1%;
