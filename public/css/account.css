@@ -32,6 +32,9 @@ br{
     padding-right: 10%;
     padding-bottom: 3%;
 }
+img{
+    width:20%;
+}
 #profilepic{
     width: 20%;
 }
