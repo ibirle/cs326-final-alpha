@@ -1,0 +1,117 @@
+#recipe-title {
+    text-align: center;
+    padding-top: 2%;
+}
+
+#recipe-block {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
+}
+
+.recipe-img {
+    border-radius: 10px;
+    max-width: 100%;
+    float: left;
+    margin-bottom: 4vw;
+}
+
+#recipe-description {
+    margin-bottom: 4vw;
+    padding-top: 1%;
+    padding-left: 5%;
+}
+
+.nav-div {
+    padding-left: 8.5%;
+    padding-right: 8.5%;
+}
+
+.nav-div .row div button {
+    width: 100%;
+    background-color: white;
+    color: black;
+}
+
+.selected {
+    background-color: rgb(77,77,90) !important;
+    color: white !important;
+}
+
+.no-gutter {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-gutter-nav> [class*="col-"] {
+    padding: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+}
+  
+#entry-tab-content > [class*="col-"] {
+    padding: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+}
+
+#recipe-block > [class*="col-"] {
+    padding: 0;
+    padding-right: 3%;
+}
+
+.entry-cards {
+    padding-top: 1%;
+    padding-left: 8.5vw;
+    padding-right: 8.5vw;
+    text-align: center;
+}
+
+.entry-cards img{
+    border-radius: 20px;
+}
+.small-img-card {
+    opacity: .7;
+}
+
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+.carousel-indicators li {
+    background-color: grey;
+}
+.carousel-indicators .active {
+    background-color: #000000;;
+}
+
+#submit-tab-content{
+    padding-right: 10%;
+    padding-left: 10%;
+    display: none;
+}
+
+#comment-tab-content{
+    padding-right: 10%;
+    padding-left: 10%;
+    display: none;
+}
+
+.profile-picture {
+    width: 5vh;
+    height: 5vh;
+}
+
+#profile-info {
+}
+
+.comment-card {
+    margin-top: 3%;
+}

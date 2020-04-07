@@ -1,0 +1,73 @@
+#weekly {
+    padding-top: 1%;
+    padding-left: 10%;
+    padding-right: 10%;
+    text-align: center;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+#weeklyCard {
+    margin-top: 2%;
+}
+
+.centered {
+    height: 100%;
+    width: 100%;
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    
+}
+
+.wide-img-card {
+    min-height: 150px;
+    opacity: .6;
+}
+
+#daily {
+    padding-top: 1%;
+    padding-left: 8.5vw;
+    padding-right: 8.5vw;
+    text-align: center;
+}
+
+.daily-card {
+    width: 100%;
+}
+
+.daily-cards {
+    padding-top: 1%;
+}
+
+.no-gutter {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .no-gutter > [class*="col-"] {
+    padding: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+  }
+
+.small-img-card {
+    opacity: .6;
+}
+
+.small-centered {
+    height: 100%;
+    width: 100%;
+    padding-top: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    position: absolute;
+    text-align: center;
+}
+
