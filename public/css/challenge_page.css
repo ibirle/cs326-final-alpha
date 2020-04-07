@@ -11,16 +11,18 @@
 
 .recipe-img {
     border-radius: 10px;
-    max-width: 25%;
+    max-width: 100%;
+    float: left;
+    margin-bottom: 4vw;
 }
 
 #recipe-description {
+    margin-bottom: 4vw;
     padding-top: 1%;
     padding-left: 5%;
 }
 
 .nav-div {
-    margin-top: 2.5%;
     padding-left: 8.5%;
     padding-right: 8.5%;
 }
@@ -39,14 +41,26 @@
 .no-gutter {
     margin-right: 0;
     margin-left: 0;
-  }
-  
-  .no-gutter > [class*="col-"] {
+}
+
+.no-gutter-nav> [class*="col-"] {
     padding: 1.5vw;
     display: flex;
     align-items: center;
     justify-content: inherit;
-  }
+}
+  
+#entry-tab-content > [class*="col-"] {
+    padding: 1.5vw;
+    display: flex;
+    align-items: center;
+    justify-content: inherit;
+}
+
+#recipe-block > [class*="col-"] {
+    padding: 0;
+    padding-right: 3%;
+}
 
 .entry-cards {
     padding-top: 1%;
@@ -88,4 +102,16 @@
     padding-right: 10%;
     padding-left: 10%;
     display: none;
+}
+
+.profile-picture {
+    width: 5vh;
+    height: 5vh;
+}
+
+#profile-info {
+}
+
+.comment-card {
+    margin-top: 3%;
 }
