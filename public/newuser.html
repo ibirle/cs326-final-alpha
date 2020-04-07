@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!--We need these for bootstrap-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!--Stylesheets-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/login.css">
+
+        <title>Bake Off!</title>
+    </head>
+    <body>
+        <div id="banner" class="row banner-row">
+            <div id="homeButton" class="col-4 d-flex justify-content-start align-self-center">
+                <a class="text-dark" href="index.html"><span>Home</span></a>
+            </div>
+            <div id="titleLogo" class="col-4 d-flex justify-content-center align-self-center">
+                <span class="horizontal-center">Bake&nbspOff!</span>
+            </div>
+            <div id="loginButton" class="col-4 d-flex justify-content-end align-self-center">
+                <a href="login.html"><button type="button" class="btn btn-dark">Login</button></a>
+            </div>
+        </div>
+        <div id= "newuser" class="loginbox">
+        <br>
+        <!-- We should Use a regex function to confirm valid input and matching fields-->
+        <label for ="newemail">Please Enter Your Email</label><br>
+        <input type="text" placeholder="Proivde an Email" name="newemail" required>
+        <br>
+        <label for ="confemail">Confirm Your Email</label><br>
+        <input type="text" placeholder="Retype Email" name="confemail" required>
+        <br>
+        <label for ="newUser">Please Enter an Username</label><br>
+        <input type="text" placeholder="Provide a Username" name="newUser" required>
+        <br>
+        <label for ="confuser">Confirm Your Username</label><br>
+        <input type="text" placeholder="Confirm Username" name="confUser" required>
+        <br>
+        <label for ="newepw">Please Enter a Password</label>
+        <br>
+        <input type="password" placeholder="Provide a Password" name="newpw" required><br>
+        <label for ="confpw">Confirm Your Email</label>
+        <br>
+        <input type="password" placeholder="Confirm Password" name="confpw" required>
+        <br>
+        <label for ="skil">Enter Skill Level</label><br>
+        <select id="skill" required>
+            <option value ="noob">Noob</option>
+            <option value ="beginner">Beginner</option>
+            <option value ="average">Average</option>
+            <option value ="experienced">Experienced</option>
+            <option value ="pro">Pro</option>
+            <option value ="master">Master</option>
+        </select>
+        <br>
+        <label><input type="checkbox" required>Aggree to terms and conditions</label><br>
+        <!--We need to add some js to display the popup-->
+        <br><button type="submit"  class="submit" >Submit<div id="popup"></button>
+        <br><br>
+        <a id="forgot" class="loginlink" href="forgot.html">Forgot Your Login Info?</a>
+        <br>
+       <a id="remembered" class="loginlink" href="login.html">Back to Login</a>
+       <br></div>
+    </body>
+    <footer>
+         <!--Bootstrap javascript packages-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </footer>
+</html>

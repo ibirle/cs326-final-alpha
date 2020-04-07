@@ -13,7 +13,11 @@
     padding-right: 10%;
     padding-bottom: 3%;
 }
-
+#newuser{
+    margin-top:25px;
+    padding:1%;
+    padding-bottom:1%
+}
 .loginlink{
     color: darkslategrey;
 }
