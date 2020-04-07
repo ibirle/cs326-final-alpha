@@ -24,8 +24,35 @@
                 <a href="login.html"><button type="button" class="btn btn-dark">SignOut</button></a>
             </div>
         </div>
+        <form>
         <div id="editbox" class="account">
-        
+        <label for ="editmail">Your current email is</label><br>
+        <div id="mailvalue" class="smaller"><p>email@umass.edu<p></div>
+        <input type="text" placeholder="Please Enter A new Email" name="editemail">
+        <br>
+        <label for ="edituser">Your current username is</label><br>
+        <div id="unvalue" class="smaller"><p>username<p></div>
+        <input type="text" placeholder="Please Enter A new Username" name="edituser">
+        <br>
+        <label for ="pp">Your current profile picture is</label><br>
+        <div id="ppvalue" class="smaller"><img id="ppedit" class="account" src="/pictures/defaultProfile.jpg"></div><br>
+        <input type="text" name="pp"><!--need to work on submitting an image-->
+        <br>
+        <label for ="edittitle">Your current title is</label><br>
+        <div id="titlevalue" class="smaller"><p>title<p></div>
+        <select id="edittitle">
+
+        </select><br>
+        <label for ="edittitle">Your current skill level is</label><br>
+        <div id="titlevalue" class="smaller"><p>Noob<p></div>
+        <select id="skill" ><!--change select to match account-->
+                <option value ="noob">Noob</option>
+                <option value ="beginner">Beginner</option>
+                <option value ="average">Average</option>
+                <option value ="experienced">Experienced</option>
+                <option value ="pro">Pro</option>
+                <option value ="master">Master</option>
+         </select><br>
         <label for ="newepw">Please Enter Your Password to Finalize</label>
         <br>
         <input type="password" placeholder="Provide a Password" name="newpw" required><br>
@@ -33,7 +60,8 @@
         <br>
         <input type="password" placeholder="Confirm Password" name="confpw" required>
         <br>
-        </div>
+        <br><button type="submit"  class="submit" >Submit Changes<div id="popup"></button>
+        </div></form>
     </body>
     <footer>
         <!--Bootstrap javascript packages-->

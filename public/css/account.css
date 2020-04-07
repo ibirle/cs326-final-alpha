@@ -44,9 +44,16 @@ br{
     font-style: italic;
 }
 .smaller{
-    font-size: 15pt;
+    font-size: 10pt;
+    font-style: normal;
     font-weight: bold;
 }
-.evensmaller{
+.evensmaller p{
     font-size:8pt;
+}
+input{
+    width:60%
+}
+select{
+    width:60%
 }
