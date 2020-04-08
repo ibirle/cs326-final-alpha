@@ -12,6 +12,7 @@
         <title>Bake Off!</title>
     </head>
     <body>
+
         <div id="banner" class="row banner-row">
             <div id="homeButton" class="col-4 d-flex justify-content-start align-self-center">
                 <a class="text-dark" href="index.html"><span>Home</span></a>
@@ -23,6 +24,7 @@
                 <a href="login.html"><button type="button" class="btn btn-dark">Login</button></a>
             </div>
         </div>
+
         <div id="recipe">
             <div id="recipe-block" class="row no-gutter">
                 <div class="img-col col-lg-3 col-md-12">
@@ -37,6 +39,7 @@
                 </div>
             </div>
         </div>
+
         <div class="nav-div">
             <div class="row no-gutter no-gutter-nav">
                 <div class="col-4 d-flex justify-content-center align-self-center">
@@ -50,12 +53,26 @@
                 </div>
             </div>
         </div>
-        <div id="submit-tab-content">
-            <p>Nunc eget nisi aliquam lacus ullamcorper condimentum. Pellentesque sapien dui, tincidunt a accumsan aliquam, placerat tincidunt eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non condimentum magna.
-                Nunc eget nisi aliquam lacus ullamcorper condimentum. Pellentesque sapien dui, tincidunt a accumsan aliquam, placerat tincidunt eros. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non condimentum magna.
-            </p>
+
+        <div id="submit-tab-content" class="content-tab">
+          <div class="row">
+            <div class="col-4">
+              <div class="upload-btn-wrapper">
+                <button class="btn">Upload a file</button>
+                <input type="file" name="myfile" />
+              </div>
+            </div>
+
+            <div class="col-8">
+
+            </div>
+
+
+          </div>
         </div>
-        <div id="comment-tab-content">
+
+
+        <div id="comment-tab-content" class="content-tab">
                 <div class="row comment-card">
                     <div id="profile-info" class="col-2">
                         <img src="pictures/defaultProfile.jpg" class="card-img profile-picture" alt="Profile Picture">
@@ -67,7 +84,7 @@
                     </div>
                 </div>
         </div>
-        <div id="entry-tab-content" class="row no-gutter entry-cards">
+        <div id="entry-tab-content" class="row no-gutter-centered entry-cards content-tab">
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div id="carouselExampleIndicators" class="carousel slide">
                     <ol class="carousel-indicators">
