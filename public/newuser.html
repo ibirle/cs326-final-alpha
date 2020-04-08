@@ -23,7 +23,7 @@
             <div id="loginButton" class="col-4 d-flex justify-content-end align-self-center">
                 <a href="login.html"><button type="button" class="btn btn-dark">Login</button></a>
             </div>
-        </div>
+        </div><form>
         <div id= "newuser" class="loginbox">
         <br>
         <!-- We should Use a regex function to confirm valid input and matching fields-->
@@ -42,7 +42,7 @@
         <label for ="newepw">Please Enter a Password</label>
         <br>
         <input type="password" placeholder="Provide a Password" name="newpw" required><br>
-        <label for ="confpw">Confirm Your Email</label>
+        <label for ="confpw">Confirm Your Password</label>
         <br>
         <input type="password" placeholder="Confirm Password" name="confpw" required>
         <br>
@@ -56,14 +56,14 @@
             <option value ="master">Master</option>
         </select>
         <br>
-        <label><input type="checkbox" required>Aggree to terms and conditions</label><br>
+        <label><input type="checkbox" required>Agree to terms and conditions</label><br>
         <!--We need to add some js to display the popup-->
         <br><button type="submit"  class="submit" >Submit<div id="popup"></button>
         <br><br>
         <a id="forgot" class="loginlink" href="forgot.html">Forgot Your Login Info?</a>
         <br>
        <a id="remembered" class="loginlink" href="login.html">Back to Login</a>
-       <br></div>
+       <br></div></form>
     </body>
     <footer>
          <!--Bootstrap javascript packages-->

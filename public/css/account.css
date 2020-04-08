@@ -1,4 +1,8 @@
-#account{
+br{
+    line-height: 2px;
+    margin:1px;
+}
+.accountpage{
     border : 3px solid black;
     background-color: palegoldenrod;
     margin-left: auto;
@@ -13,8 +17,26 @@
     padding-right: 10%;
     padding-bottom: 3%;
 }
+#editbox{
+    border : 3px solid black;
+    background-color: palegoldenrod;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    position: block;
+    text-align: center;
+    align-items: center;
+    width: 75%;
+    padding-top: 3%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 3%;
+}
+img{
+    width:20%;
+}
 #profilepic{
-    width: 60%;
+    width: 20%;
 }
 #linkedit{
     color:slategray;
@@ -23,4 +45,18 @@
 .account p{
     font-size: 20pt;
     font-style: italic;
+}
+.smaller{
+    font-size: 10pt;
+    font-style: normal;
+    font-weight: bold;
+}
+.evensmaller p{
+    font-size:8pt;
+}
+input{
+    width:60%
+}
+select{
+    width:60%
 }
