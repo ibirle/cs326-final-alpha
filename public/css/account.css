@@ -17,6 +17,9 @@ br{
     padding-right: 10%;
     padding-bottom: 3%;
 }
+#ppbutton{
+    text-align:center;
+}
 #editbox{
     border : 3px solid black;
     background-color: palegoldenrod;
@@ -55,7 +58,7 @@ img{
     font-size:8pt;
 }
 input{
-    width:60%
+    width:60%  
 }
 select{
     width:60%

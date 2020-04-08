@@ -10,7 +10,8 @@
 }
 
 .recipe-img {
-    border-radius: 10px;
+    border-radius: 20px;
+    float: left;
     margin-bottom: 4vw;
 }
 
