@@ -50,14 +50,14 @@ h2 {
 .no-gutter {
     margin-right: 0;
     margin-left: 0;
-  }
+}
   
-  .no-gutter > [class*="col-"] {
+.daily-cards > [class*="col-"] {
     padding: 1.5vw;
     display: flex;
     align-items: center;
     justify-content: inherit;
-  }
+}
 
 .small-img-card {
     border-radius: 20px !important;

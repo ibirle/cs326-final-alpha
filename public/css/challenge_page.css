@@ -4,8 +4,8 @@
 }
 
 #recipe-block {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 10vw;
+    padding-right: 9vw;
     padding-top: 2%;
 }
 
@@ -22,8 +22,8 @@
 }
 
 .nav-div {
-    padding-left: 8.5%;
-    padding-right: 8.5%;
+    padding-left: 8.5vw;
+    padding-right: 8.5vw;
 }
 
 .nav-div .row div button {
@@ -37,12 +37,12 @@
     color: white !important;
 }
 
-.no-gutter {
+[class*="no-gutter"] {
     margin-right: 0;
     margin-left: 0;
 }
 
-.no-gutter-nav> [class*="col-"] {
+.no-gutter-centered > [class*="col-"] {
     padding: 1.5vw;
     display: flex;
     align-items: center;
@@ -58,19 +58,26 @@
 
 #recipe-block > [class*="col-"] {
     padding: 0;
-    padding-right: 3%;
+    padding-right: 1vw;
+}
+
+.content-tab {
+    padding-top: 3%;
 }
 
 .entry-cards {
-    padding-top: 1%;
     padding-left: 8.5vw;
     padding-right: 8.5vw;
-    text-align: center;
 }
 
 .entry-cards img{
     border-radius: 20px;
 }
+
+#submit-tab-content img{
+    border-radius: 20px;
+}
+
 .small-img-card {
     opacity: .7;
 }
@@ -92,8 +99,8 @@
 }
 
 #submit-tab-content{
-    padding-right: 10%;
-    padding-left: 10%;
+    padding-right: 8.5vw;
+    padding-left: 8.5vw;
     display: none;
 }
 
