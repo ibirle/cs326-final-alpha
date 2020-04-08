@@ -35,4 +35,10 @@ function commentTab()
     $("#comment-tab").addClass("selected");
 }
 
+var textarea = $('.form-control');
+textarea.on("input", function () {
+    $(this).css("height", ""); //reset the height
+    $(this).css("height", Math.min($(this).prop('scrollHeight'), 200) + "px");
+});
+
 
