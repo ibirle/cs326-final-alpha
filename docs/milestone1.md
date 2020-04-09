@@ -1,1 +1,175 @@
-Bake Off! (Title might change)</span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0"># Team Members:</span></p><ul class="c3 lst-kix_2zz20i8si0b6-0 start"><li class="c1"><span class="c0">Alain Duplan, alain-duplan</span></li><li class="c1"><span class="c0">Alex Winter, alexmwinter</span></li><li class="c1"><span class="c0">Ian Birle, ibirle</span></li></ul><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0"># Important Idea</span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0">A website that will host baking competitions. There will be a given recipe for each competition and users can upload pictures of what they baked. Other users can then vote on which person baked the best looking version of that recipe. There will also be a section for user&#39;s tips and tricks / questions people have about the recipe. The idea is to bring bakers together and let them learn from others&#39; successes and mistakes.</span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0">Veterans and novices to baking alike can try their hand at weekly and/or daily baking recipe challenges that will be user generated and voted on. During our time in quarantine it would be fun to pick up a new skill and to practice in the comfort of one&rsquo;s own home while comparing their creations with others.</span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0">No similar website exists. There are similar things online, but they are all on facebook groups or similar platforms. </span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0"># Data Interactions:</span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 248.00px;"><img alt="" src="images/image2.png" style="width: 624.00px; height: 248.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p><p class="c4"><span class="c0"></span></p><p class="c4"><span class="c0"></span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0">Create competitions &nbsp;</span></p><p class="c6"><span class="c0">    Link to recipe &nbsp;</span></p><p class="c6"><span class="c0">    Description and rules &nbsp;</span></p><p class="c6"><span class="c0">    Add a start and end time to enter &nbsp;</span></p><p class="c6"><span class="c0">    Add a start and end time to vote &nbsp;</span></p><p class="c6"><span class="c0">    Restricted to admins &nbsp;</span></p><p class="c6"><span class="c0">Browse competitions &nbsp;</span></p><p class="c6"><span class="c0">    View all running competitions &nbsp;</span></p><p class="c6"><span class="c0">    See details about a particular competition &nbsp;</span></p><p class="c6"><span class="c0">Create user accounts &nbsp;</span></p><p class="c6"><span class="c0">    Create account page &nbsp;</span></p><p class="c6"><span class="c0">    Login page &nbsp;</span></p><p class="c6"><span class="c0">    Basic info (Username, baking skill level, etc.) &nbsp;</span></p><p class="c6"><span class="c0">Enter into competition &nbsp;</span></p><p class="c6"><span class="c0">    View recipe &nbsp;</span></p><p class="c6"><span class="c0">    Upload images as entry &nbsp;</span></p><p class="c6"><span class="c0">    Allow others to vote for winner &nbsp;</span></p><p class="c6"><span class="c0">Ending competition &nbsp;</span></p><p class="c6"><span class="c0">    Select the winner based on &nbsp;the most votes &nbsp;</span></p><p class="c6"><span class="c0">    Add badges to accounts of winners &nbsp;</span></p><p class="c6"><span class="c0">Tips / question section &nbsp;</span></p><p class="c6"><span class="c0">    Unique section under each competition &nbsp;</span></p><p class="c6"><span class="c0">    Allow any user to post </span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0"># Wireframe</span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0">We made the basic layout of some of the pages on Figma in order to organize some of our ideas before just getting them into HTML &amp; CSS. Here is a link to that document:</span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c7"><a class="c9" href="https://www.google.com/url?q=https://www.figma.com/file/YpExW6oBGqRynRAgwFys4c/BakeOff&amp;sa=D&amp;ust=1586410552158000">https://www.figma.com/file/YpExW6oBGqRynRAgwFys4c/BakeOff</a></span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0"># HTML &amp; CSS</span></p><p class="c4"><span class="c0"></span></p><ul class="c3 lst-kix_5d8foyzbs0gj-0 start"><li class="c1"><span>Home Screen: This is where the visitors will first be greeted to the website where they will be able to see all of the current challenges up to participate in. A large weekly challenge banner will always reside at the top of the page, while smaller daily challenges sit below that for less time intensive challenges.</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 328.00px;"><img alt="" src="images/image6.png" style="width: 624.00px; height: 328.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></li><li class="c1"><span>Challenge Screen: After the user selects the challenge they either wanted to view the entries for or enter into themselves they would be taken here to see the actual description of what the recipe is as well as a link to an outside resource for the actual recipe (i.e. All Recipes).This page includes a list of current entries that visitors can vote on as to which one they think looks the best. These are limited to one vote per challenge per account. The next tab is for actually submitting one&rsquo;s own recipe to the challenge. The final tab is for comments that some people may have for ways in which they changed the recipe to make it better for them or even tips and tricks for others.</span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 326.67px;"><img alt="" src="images/image3.png" style="width: 624.00px; height: 326.67px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 161.33px;"><img alt="" src="images/image5.png" style="width: 624.00px; height: 161.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 180.00px;"><img alt="" src="images/image4.png" style="width: 624.00px; height: 180.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></li><li class="c1"><span>Login/Account Pages: Simply a page for the users to log in and edit their profiles with the applicable information. It will also be where they can choose what badges to show if they win any of the daily or weekly challenges. </span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 317.33px;"><img alt="" src="images/image1.png" style="width: 624.00px; height: 317.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 317.33px;"><img alt="" src="images/image7.png" style="width: 624.00px; height: 317.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 317.33px;"><img alt="" src="images/image8.png" style="width: 624.00px; height: 317.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></li></ul><hr style="page-break-before:always;display:none;"><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0"># Division of Labor</span></p><p class="c4"><span class="c0"></span></p><ul class="c3 lst-kix_55vr35h4j6g3-0 start"><li class="c1"><span class="c0">Index Page</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1 start"><li class="c6 c8"><span class="c0">Card Design</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alex</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Basic Structure</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Ian</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Top Banner</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alex</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Card grid layout</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Ian</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Wireframe</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alex</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-0"><li class="c1"><span class="c0">Challenge Page</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1 start"><li class="c6 c8"><span class="c0">Carousel Design</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Ian</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Carousel Grid Layout</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Ian</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Comment section</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alex</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Nav-Bar Layout</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alex</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Nav-Bar JS</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Ian</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Submit section</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Ian</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Recipe Block</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alex</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Wireframe</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Ian</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-0"><li class="c1"><span class="c0">Login/Account</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1 start"><li class="c6 c8"><span class="c0">Structure</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alain</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Login page</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alain</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Account page</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alain</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-1"><li class="c6 c8"><span class="c0">Edit account</span></li></ul><ul class="c3 lst-kix_55vr35h4j6g3-2 start"><li class="c2"><span class="c0">Alain</span></li></ul><p class="c4"><span class="c0"></span></p><p class="c4"><span class="c0"></span></p><p class="c6"><span class="c0">Just as a heads up Alex and Ian live together and there was a ton of peer programming for this.</span></p></body></html>
+# Bake Off! (Title might change)
+
+# Team Members:
+
+
+
+*   Alain Duplan, alain-duplan
+*   Alex Winter, alexmwinter
+*   Ian Birle, ibirle
+
+# Important Idea
+
+A website that will host baking competitions. There will be a given recipe for each competition and users can upload pictures of what they baked. Other users can then vote on which person baked the best looking version of that recipe. There will also be a section for user's tips and tricks / questions people have about the recipe. The idea is to bring bakers together and let them learn from others' successes and mistakes.
+
+Veterans and novices to baking alike can try their hand at weekly and/or daily baking recipe challenges that will be user generated and voted on. During our time in quarantine it would be fun to pick up a new skill and to practice in the comfort of one’s own home while comparing their creations with others.
+
+No similar website exists. There are similar things online, but they are all on facebook groups or similar platforms. 
+
+# Data Interactions:
+
+
+
+<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md0.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md0.png "image_tooltip")
+
+
+Create competitions  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Link to recipe  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Description and rules  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Add a start and end time to enter  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Add a start and end time to vote  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Restricted to admins  
+
+Browse competitions  
+
+&nbsp;&nbsp;&nbsp;&nbsp;View all running competitions  
+
+&nbsp;&nbsp;&nbsp;&nbsp;See details about a particular competition  
+
+Create user accounts  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Create account page  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Login page  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Basic info (Username, baking skill level, etc.)  
+
+Enter into competition  
+
+&nbsp;&nbsp;&nbsp;&nbsp;View recipe  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Upload images as entry  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Allow others to vote for winner  
+
+Ending competition  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Select the winner based on  the most votes  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Add badges to accounts of winners  
+
+Tips / question section  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Unique section under each competition  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Allow any user to post 
+
+# Wireframe
+
+We made the basic layout of some of the pages on Figma in order to organize some of our ideas before just getting them into HTML & CSS. Here is a link to that document:
+
+[https://www.figma.com/file/YpExW6oBGqRynRAgwFys4c/BakeOff](https://www.figma.com/file/YpExW6oBGqRynRAgwFys4c/BakeOff)
+
+# HTML & CSS
+
+
+
+*   Home Screen: This is where the visitors will first be greeted to the website where they will be able to see all of the current challenges up to participate in. A large weekly challenge banner will always reside at the top of the page, while smaller daily challenges sit below that for less time intensive challenges.
+
+<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md1.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md1.png "image_tooltip")
+
+*   Challenge Screen: After the user selects the challenge they either wanted to view the entries for or enter into themselves they would be taken here to see the actual description of what the recipe is as well as a link to an outside resource for the actual recipe (i.e. All Recipes).This page includes a list of current entries that visitors can vote on as to which one they think looks the best. These are limited to one vote per challenge per account. The next tab is for actually submitting one’s own recipe to the challenge. The final tab is for comments that some people may have for ways in which they changed the recipe to make it better for them or even tips and tricks for others.
+
+<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md2.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md2.png "image_tooltip")
+
+
+<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md3.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md3.png "image_tooltip")
+
+
+<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md4.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md4.png "image_tooltip")
+
+*   Login/Account Pages: Simply a page for the users to log in and edit their profiles with the applicable information. It will also be where they can choose what badges to show if they win any of the daily or weekly challenges. 
+
+<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md5.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md5.png "image_tooltip")
+
+
+<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md6.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md6.png "image_tooltip")
+
+
+<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/milestone1-md7.png). Store image on your image server and adjust path/filename if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+
+
+![alt_text](images/milestone1-md7.png "image_tooltip")
+
+
+
+
+# Division of Labor
+
+
+
+*   Index Page
+    *   Card Design
+        *   Alex
+    *   Basic Structure
+        *   Ian
+    *   Top Banner
+        *   Alex
+    *   Card grid layout
+        *   Ian
+    *   Wireframe
+        *   Alex
+*   Challenge Page
+    *   Carousel Design
+        *   Ian
+    *   Carousel Grid Layout
+        *   Ian
+    *   Comment section
+        *   Alex
+    *   Nav-Bar Layout
+        *   Alex
+    *   Nav-Bar JS
+        *   Ian
+    *   Submit section
+        *   Ian
+    *   Recipe Block
+        *   Alex
+    *   Wireframe
+        *   Ian
+*   Login/Account
+    *   Structure
+        *   Alain
+    *   Login page
+        *   Alain
+    *   Account page
+        *   Alain
+    *   Edit account
+        *   Alain
+
+Just as a heads up Alex and Ian live together and there was a ton of peer programming for this.
