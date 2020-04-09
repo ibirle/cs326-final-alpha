@@ -22,6 +22,7 @@ No similar website exists. There are similar things online, but they are all on 
 
 ![alt_text](images/milestone1-md0.png "image_tooltip")
 
+## Important Components:
 
 Create competitions  
 
