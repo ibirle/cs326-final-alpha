@@ -24,17 +24,6 @@ No similar website exists. There are similar things online, but they are all on 
 
 ## Important Components:
 
-Create competitions  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Link to recipe  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Description and rules  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Add a start and end time to enter  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Add a start and end time to vote  
-
-&nbsp;&nbsp;&nbsp;&nbsp;Restricted to admins  
 
 Browse competitions  
 
