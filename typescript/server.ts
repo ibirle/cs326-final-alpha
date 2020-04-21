@@ -1,9 +1,8 @@
 'use strict';
-const express = require('express');
-const app = express();
-const port = 3000;
+import { Database } from './mongo-db';
+import { MyServer } from './Routing';
 
-app.use(express.static('public'));
+const theDatabase = new Database(''); // CHANGE THIS
+const theServer = new MyServer(theDatabase);
 
-app.listen(process.env.PORT || 3000, 
-	() => console.log("Server is running..."));
+theServer.listen();//fil this
