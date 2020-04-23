@@ -6,6 +6,8 @@ export class Database {
 
     constructor() {
 
+        console.log(process.env.DATABASE_URL);
+
         this.client = new Client({
             connectionString: process.env.DATABASE_URL,
             ssl: true,
@@ -18,6 +20,6 @@ export class Database {
 
     public async getAllCurrentChallengesQuery() : Promise<Object> {
         console.log("Here");
-        return this.client.query('SELECT * FROM PUBLIC.COMPETITION;').catch(console.log("error with query"));
+        return this.client.query('SELECT * FROM Entry;').catch(console.log("error with query"));
     }
 }
