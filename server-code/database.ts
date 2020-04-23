@@ -19,4 +19,65 @@ export class Database {
     public async getAllCurrentChallenges() : Promise<Object> {
         return this.client.query('SELECT * FROM COMPETITION;');
     }
+    
+    public async getChallenge(key: string, value: string) : Promise<Object> {
+        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+        });
+        return {};
+    }
+
+    public async getEntries(key: string, value: string) : Promise<Object> {
+        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+        });
+        return {};
+    }
+
+    public async submitEntry(key: string, value: string) : Promise<Object> {
+        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+        });
+        return {};
+    }
+
+    public async getEntryPictures(key: string, value: string) : Promise<Object> {
+        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+        });
+        return {};
+    }
+
+    public async voteFor(key: string, value: string) : Promise<Object> {
+        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+        });
+        return {};
+    }
+
+    public async getVoteTotal(key: string, value: string) : Promise<Object> {
+        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+        });
+        return {};
+    }
+
 }
