@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitThis": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "strictNullChecks": true, // good idea not to disable
+        "pretty": true,
+        "module": "commonjs",
+    },
+    "files": [ "client.ts", "Account.ts", "challenge_page.ts", "forgot.ts", "index.ts", "login.ts", "newUser.ts"] // change me
+}
