@@ -15,11 +15,12 @@ export class Database {
 
         (async () => {
             await this.client.connect().catch(err => { console.log(err); });
+            await this.client.query("SET SCHEMA prod");
         })();
     }
 
     public async getAllCurrentChallengesQuery() : Promise<Object> {
         console.log("Here");
-        return this.client.query('select * from prod.competition').catch(err => { console.log(err); });
+        return this.client.query('select * from competition').catch(err => { console.log(err); });
     }
 }
