@@ -16,17 +16,7 @@ export class Database {
         })();
     }
 
-    public async getAllCurrentChallenges(key: string, value: string) : Promise<Object> {
-        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
-        return {};
+    public async getAllCurrentChallenges() : Promise<Object> {
+        return this.client.query('SELECT * FROM COMPETITION;');
     }
-    
-
-
-
 }
