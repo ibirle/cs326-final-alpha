@@ -33,25 +33,25 @@ export class RoutingServer {
 	}
 
 	private async getAllCurrentChallengesHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.getAllCurrentChallengesQuery();
+		let queryResponse = await this.db.getAllCurrentChallengesQuery();
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async getChallengeHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.getChallengesQuery(request.body.challengeID);
+		let queryResponse = await this.db.getChallengesQuery(request.body.challengeID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async getEntriesHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.getEntriesQuery(request.body.challengeID);
+		let queryResponse = await this.db.getEntriesQuery(request.body.challengeID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async submitEntryHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.submitEntryQuery(request.body.entry);
+		let queryResponse = await this.db.submitEntryQuery(request.body.entry);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
@@ -62,7 +62,7 @@ export class RoutingServer {
 	}
 
 	private async voteForHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.voteForQuery(request.body.entryID, request.body.userID);
+		let queryResponse = await this.db.voteForQuery(request.body.entryID, request.body.userID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
