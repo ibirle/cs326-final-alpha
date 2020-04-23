@@ -1,3 +1,5 @@
+let url = require('url');
+
 $('.carousel').carousel({
     interval: false
 });
@@ -12,7 +14,6 @@ function entryTab()
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").removeClass("selected");
 }
-
 function submitTab()
 {
     $("#entry-tab-content").hide();
@@ -41,4 +42,6 @@ textarea.on("input", function () {
     $(this).css("height", Math.min($(this).prop('scrollHeight'), 200) + "px");
 });
 
+function submitAnEntry(){
 
+}
