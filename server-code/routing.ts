@@ -1,6 +1,6 @@
 let express = require('express');
 
-export class MyServer {
+export class RoutingServer {
 
     private db;
 
@@ -33,33 +33,44 @@ export class MyServer {
 	}
 
 	private async getAllCurrentChallengesHandler(request, response) : Promise<void> {
-		console.log("wedidit");
-		response.write("Testing123");
+		let queryResponse = this.db.getAllCurrentChallengesQuery();
+		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async getChallengeHandler(request, response) : Promise<void> {
-		await null;
+		let queryResponse = this.db.getChallengesQuery(request.body.challengeID);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
 	}
 
 	private async getEntriesHandler(request, response) : Promise<void> {
-		await null;
+		let queryResponse = this.db.getEntriesQuery(request.body.challengeID);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
 	}
 
 	private async submitEntryHandler(request, response) : Promise<void> {
-		await null;
+		let queryResponse = this.db.submitEntryQuery(request.body.entry);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
 	}
 
 	private async getEntryPicturesHandler(request, response) : Promise<void> {
-		await null;
+		response.write("TEST");
+		response.end();
 	}
 
 	private async voteForHandler(request, response) : Promise<void> {
-		await null;
+		let queryResponse = this.db.voteForQuery(request.body.entryID, request.body.userID);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
 	}
 
 	private async getVoteTotalHandler(request, response) : Promise<void> {
-		await null;
+		let queryResponse = this.db.getVoteTotal(request.body.entryID);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
 	}
 
 
