@@ -18,6 +18,6 @@ export class Database {
 
     public async getAllCurrentChallengesQuery() : Promise<Object> {
         console.log("Here");
-        return this.client.query('SELECT * FROM COMPETITION;').catch(console.log("error with query"));
+        return this.client.query('SELECT * FROM PUBLIC.COMPETITION;').catch(console.log("error with query"));
     }
 }
