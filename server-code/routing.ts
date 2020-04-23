@@ -8,16 +8,16 @@ export class MyServer {
     private router = express.Router();
 
     constructor(db) {
-	this.db = db;
+		this.db = db;
 
-	this.router.use((request, response, next) => {
-	    response.header('Content-Type','application/json');
-	    response.header('Access-Control-Allow-Origin', '*');
-	    response.header('Access-Control-Allow-Headers', '*');
-	    next();
-	});
-	
-	this.server.use('/', express.static('./../public/'));
+		this.router.use((request, response, next) => {
+			response.header('Content-Type','application/json');
+			response.header('Access-Control-Allow-Origin', '*');
+			response.header('Access-Control-Allow-Headers', '*');
+			next();
+		});
+		
+		this.server.use(express.static('public'));
 	}
 
 public listen(port) : void  {
