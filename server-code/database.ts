@@ -16,8 +16,9 @@ export class Database {
         })();
     }
 
-    public async getAllCurrentChallenges() : Promise<Object> {
-        return this.client.query('SELECT * FROM COMPETITION;');
+    public async getAllCurrentChallengesQuery() : Promise<Object> {
+        console.log("Here");
+        return this.client.query('SELECT * FROM COMPETITION;').catch(console.log("error with query"));
     }
     
     public async getChallenge(key: string, value: string) : Promise<Object> {
