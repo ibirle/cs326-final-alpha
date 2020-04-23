@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ibirle/cs326-final-alpha#readme",
   "dependencies": {
-    "@types/node": "^13.13.1",
+    "@types/node": "^13.13.2",
     "express": "^4.17.1",
     "mongodb": "^3.5.6",
     "typescript": "^3.8.3"
