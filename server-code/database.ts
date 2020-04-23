@@ -20,6 +20,6 @@ export class Database {
 
     public async getAllCurrentChallengesQuery() : Promise<Object> {
         console.log("Here");
-        return this.client.query('select schema_name from information_schema.schemata;').catch(err => { console.log(err); });
+        return this.client.query('select * from prod.competition').catch(err => { console.log(err); });
     }
 }
