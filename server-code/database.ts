@@ -16,7 +16,6 @@ export class Database {
         (async () => {
             await this.client.connect().catch(err => { console.log(err); });
             let res = await this.client.query("SET search_path TO 'prod'").catch(err => { console.log(err); });
-            console.log(res);
         })();
     }
 
