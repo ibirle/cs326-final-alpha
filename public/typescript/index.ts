@@ -6,13 +6,17 @@ function getChallenge(){
 }**/
 
 
-
+/*
+Fills front page with current challenges
+*/
 $(document).ready(async function() {
     let challenges = await loadChallenges();
     let chals = separateChals(challenges);
     fillChallengesWeekly(chals[0]);
     fillChallengesDaily(chals[1]);
 })
+
+
 
 async function loadChallenges() {
     let response = await fetch('/api/getAllCurrentChallenges', {
@@ -25,6 +29,9 @@ async function loadChallenges() {
 
 }
 
+/*
+Separates the loaded challenges into daily and weekly challenges for function calls
+*/
 function separateChals(challenges) {
     let weeklies = new Array();
     let dailies = new Array();
@@ -40,7 +47,25 @@ function separateChals(challenges) {
 }
 
 function fillChallengesWeekly(challenges) {
-
+    console.log("hi");
+    $("#weekly").append( "<a href='challenge_page.html' class='text-dark'>" +
+                                "<div id='weeklyCard' class='card'>" +
+                                    "<img src='" + challenges[0].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
+                                    "<div class='centered'>" +
+                                        "<h5>" + challenges[0].competition_name + "</h5>" +
+                                    "</div>" +
+                                "</div>" +
+                            "</a>");
+    console.log("hi2");
+    $("#weekly").append( "<a href='challenge_page.html' class='text-dark'>" +
+                                "<div id='weeklyCard' class='card'>" +
+                                    "<img src='" + challenges[1].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
+                                    "<div class='centered'>" +
+                                        "<h5>" + challenges[1].competition_name + "</h5>" +
+                                    "</div>" +
+                                "</div>" +
+                            "</a>");
+    console.log("hi2");
 }
 
 function fillChallengesDaily(challenges) {

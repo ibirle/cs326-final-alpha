@@ -13,6 +13,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+/*
+Fills front page with current challenges
+*/
 $(document).ready(function () {
     return __awaiter(this, void 0, void 0, function* () {
         let challenges = yield loadChallenges();
@@ -33,6 +36,9 @@ function loadChallenges() {
         return response.json();
     });
 }
+/*
+Separates the loaded challenges into daily and weekly challenges for function calls
+*/
 function separateChals(challenges) {
     let weeklies = new Array();
     let dailies = new Array();
@@ -47,6 +53,25 @@ function separateChals(challenges) {
     return ([weeklies, dailies]);
 }
 function fillChallengesWeekly(challenges) {
+    console.log("hi");
+    $("#weekly").append("<a href='challenge_page.html' class='text-dark'>" +
+        "<div id='weeklyCard' class='card'>" +
+        "<img src='" + challenges[0].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
+        "<div class='centered'>" +
+        "<h5>" + challenges[0].competition_name + "</h5>" +
+        "</div>" +
+        "</div>" +
+        "</a>");
+    console.log("hi2");
+    $("#weekly").append("<a href='challenge_page.html' class='text-dark'>" +
+        "<div id='weeklyCard' class='card'>" +
+        "<img src='" + challenges[1].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
+        "<div class='centered'>" +
+        "<h5>" + challenges[1].competition_name + "</h5>" +
+        "</div>" +
+        "</div>" +
+        "</a>");
+    console.log("hi2");
 }
 function fillChallengesDaily(challenges) {
     console.log("here");
