@@ -21,11 +21,11 @@ export class Database {
     }
 
     public async getAllCurrentChallengesQuery() : Promise<Object> {
-        return this.client.query("SELECT * FROM COMPETITION").catch(err => { console.log(err);});
+        return this.client.query("SELECT * FROM competition").catch(err => { console.log(err);});
     }
     
     public async getChallenge(key: string, value: string) : Promise<Object> {
-        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+        this.client.query("SELECT * FROM competition WHERE competition_id = '" + key + "'", (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
@@ -35,7 +35,7 @@ export class Database {
     }
 
     public async getEntries(key: string, value: string) : Promise<Object> {
-        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+        this.client.query('SELECT * FROM entry;', (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
@@ -55,7 +55,7 @@ export class Database {
     }
 
     public async getEntryPictures(key: string, value: string) : Promise<Object> {
-        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+        this.client.query('SELECT * FROM entryimage;', (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
@@ -74,8 +74,8 @@ export class Database {
         return {};
     }
 
-    public async getVoteTotal(key: string, value: string) : Promise<Object> {
-        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+    public async getVoteTotal(key: string) : Promise<Object> {
+        this.client.query('SELECT COUNT(*) AS votetotal FROM vote WHERE competition_id =' + key + ";", (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
@@ -85,7 +85,7 @@ export class Database {
     }
 
     public async getAccount(key: string) : Promise<Object> {
-        this.client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+        this.client.query("SELECT * FROM entry WHERE user_id = " + key + ";", (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
