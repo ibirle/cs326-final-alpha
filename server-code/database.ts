@@ -81,6 +81,9 @@ export class Database {
               console.log(JSON.stringify(row));
             }
         });
+<<<<<<< HEAD
+>>>>>>> af9481a12c4e6baadf7aa24f6c55999de7f07407
+=======
 >>>>>>> af9481a12c4e6baadf7aa24f6c55999de7f07407
     }
 }
