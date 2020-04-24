@@ -10,8 +10,8 @@ function getChallenge(){
 $(document).ready(async function() {
     let challenges = await loadChallenges();
     console.log(challenges);
-    fillChallenges(challenges);
-
+    fillChallengesWeekly(challenges);
+    fillChallengesDaily(challenges);
 })
 
 async function loadChallenges() {
@@ -25,6 +25,10 @@ async function loadChallenges() {
 
 }
 
-function fillChallenges(challenges) {
+function fillChallengesWeekly(challenges) {
+
+}
+
+function fillChallengesDaily(challenges) {
 
 }
