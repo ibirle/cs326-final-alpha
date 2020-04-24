@@ -68,13 +68,13 @@ export class RoutingServer {
 	}
 
 	private async getVoteTotalHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.getVoteTotal(request.body.entryID);
+		let queryResponse = await this.db.getVoteTotal(request.body.entryID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async getAccountHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.getAccount(request.body.entryID);
+		let queryResponse = await this.db.getAccount(request.body.entryID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
