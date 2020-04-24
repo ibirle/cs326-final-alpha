@@ -44,5 +44,36 @@ function fillChallengesWeekly(challenges) {
 }
 
 function fillChallengesDaily(challenges) {
+    let row = $("#daily-cards-row");
+    let c;
+    for(c of challenges){
+        let cardCol = createDailyCard(c);
+        row.append(cardCol);
+    }
+}
 
+function createDailyCard(challenge): JQuery<HTMLElement>{
+    let col = $('<div/>', {
+        "class": 'col-sm-12 col-md-6 col-lg-4'
+    });
+
+    let card = $('<div/>', {
+        "class": 'card daily-card'
+    });
+
+    let img = $('<img/>', {
+        "class": 'card-img img-fluid small-img-card',
+        "src": challenge.cover_link,
+        "alt": "Photo for " + challenge.competition_name + " competition"
+    });
+
+    let title = $('<div/>', {
+        "class": 'small-centered'
+    });
+
+    title.append("<h5>"+ challenge.competition_name + "</h5>");
+    card.append(img);
+    card.append(title);
+    col.append(card);
+    return col;
 }
