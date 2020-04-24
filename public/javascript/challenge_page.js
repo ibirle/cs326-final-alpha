@@ -1,6 +1,4 @@
-"use strict";
 //hi5
-Object.defineProperty(exports, "__esModule", { value: true });
 $('.carousel').carousel({
     interval: false
 });
@@ -17,7 +15,6 @@ function entryTab() {
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").removeClass("selected");
 }
-exports.entryTab = entryTab;
 function submitTab() {
     $("#entry-tab-content").hide();
     $("#submit-tab-content").show();
@@ -26,7 +23,6 @@ function submitTab() {
     $("#submit-tab").addClass("selected");
     $("#comment-tab").removeClass("selected");
 }
-exports.submitTab = submitTab;
 function commentTab() {
     $("#entry-tab-content").hide();
     $("#submit-tab-content").hide();
@@ -35,4 +31,3 @@ function commentTab() {
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
 }
-exports.commentTab = commentTab;

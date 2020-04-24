@@ -11,7 +11,7 @@ textarea.on("input", function () {
 });
 
 
-export function entryTab()
+function entryTab()
 {
     $("#entry-tab-content").show();
     $("#submit-tab-content").hide();
@@ -22,7 +22,7 @@ export function entryTab()
     $("#comment-tab").removeClass("selected");
 }
 
-export function submitTab()
+function submitTab()
 {
     $("#entry-tab-content").hide();
     $("#submit-tab-content").show();
@@ -33,7 +33,7 @@ export function submitTab()
     $("#comment-tab").removeClass("selected");
 }
 
-export function commentTab()
+function commentTab()
 {
     $("#entry-tab-content").hide();
     $("#submit-tab-content").hide();
