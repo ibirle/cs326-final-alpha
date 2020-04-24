@@ -1,0 +1,51 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <form id="rendered-form">
+        <div class="rendered-form" style="padding:3%;">
+            <div class="formbuilder-text form-group field-competitionName">
+                <label for="competitionName" class="formbuilder-text-label">Competition Name</label>
+                <input type="text" class="form-control" name="competitionName" access="false" id="competitionName">
+            </div>
+            <div class="formbuilder-text form-group field-recipeLink">
+                <label for="recipeLink" class="formbuilder-text-label">Recipe Link</label>
+                <input type="text" class="form-control" name="recipeLink" access="false" id="recipeLink">
+            </div>
+            <div class="formbuilder-textarea form-group field-textarea-1587714315280">
+                <label for="textarea-1587714315280" class="formbuilder-textarea-label">Recipe Description</label>
+                <textarea type="textarea" class="form-control" name="rescipeDesc" access="false" id="rescipeDesc"></textarea>
+            </div>
+            <div class="formbuilder-date form-group field-date-1587714321697">
+                <label for="startDate" class="formbuilder-date-label">Start Date</label>
+                <input type="date" class="form-control" name="startDate" access="false" id="startDate">
+            </div>
+            <div class="formbuilder-date form-group field-endDate">
+                <label for="endDate" class="formbuilder-date-label">End Date</label>
+                <input type="date" class="form-control" name="endDate" access="false" id="endDate">
+            </div>
+            <div class="formbuilder-select form-group field-competition_type">
+                <label for="competition_type" class="formbuilder-select-label">Competition Type</label>
+                <select class="form-control" name="competition_type" access="false" multiple="false" id="competition_type">
+                    <option value="daily" selected="true" id="daily_selection">daily</option>
+                    <option value="weekly" id="weekly_selection">weekly</option>
+                </select>
+            </div>
+            <div class="formbuilder-file form-group field-image_files">
+                <label for="cover_image" class="formbuilder-file-label">Image for challenge page</label>
+                <input type="file" class="form-control" name="cover_image" access="false" multiple="true" id="cover_image">
+            </div>
+            <div class="formbuilder-file form-group field-image_files">
+                <label for="detail_image" class="formbuilder-file-label">Image for index page</label>
+                <input type="file" class="form-control" name="detail_image" access="false" id="detail_image">
+            </div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</body>
+</html>
