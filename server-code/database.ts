@@ -9,7 +9,7 @@ export class Database {
         console.log(process.env.DATABASE_URL);
 
         this.client = new Client({
-            connectionString: process.env.DATABASE_URL || "postgres://tjtawurzxcjeno:f63354efa372eef52c19d18a6101f0e573a3fc225f8e39a6ccb9bf7f44324b33@ec2-54-152-175-141.compute-1.amazonaws.com:5432/dah746ou0eons",
+            connectionString: process.env.DATABASE_URL,
             ssl: true,
         });
 
@@ -23,17 +23,8 @@ export class Database {
         return this.client.query("SELECT * FROM competition").catch(err => { console.log(err);});
     }
     
-<<<<<<< HEAD
     public async getChallengeQuery(challengeID: number) : Promise<Object> {
         return this.client.query("SELECT * FROM competition WHERE 'competition_ID' = $1", [challengeID] ).catch(err => { console.log(err);});
-=======
-    public async getChallenge(key: string) : Promise<Object> { // get a challenge from competition table given a competition id
-        return this.client.query("SELECT * FROM competition WHERE competition_id = " + key + ";", (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
     }
 
     public async getEntries(key: string) : Promise<Object> { // get all entries for a given competition, key is competition id
