@@ -57,12 +57,14 @@ export class RoutingServer {
 	}
 
 	private async getEntryPicturesHandler(request, response) : Promise<void> {
-		response.write("TEST");
+		let queryResponse = await this.db.getVoteTotal(request.body.entryID);
+		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async voteForHandler(request, response) : Promise<void> {
-		let queryResponse = await this.db.voteForQuery(request.body.entryID, request.body.userID);
+		let value = (request.body.entryID) + ", " + (request.userID);
+		let queryResponse = await this.db.voteForQuery(request.body.challengeID, value);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
@@ -74,7 +76,7 @@ export class RoutingServer {
 	}
 
 	private async getAccountHandler(request, response) : Promise<void> {
-		let queryResponse = await this.db.getAccount(request.body.entryID);
+		let queryResponse = await this.db.getAccount(request.body.userID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}

@@ -41,9 +41,8 @@ export class Database {
         });
     }
 
-    public async submitEtry(key: string, value: string) : Promise<Object> { // sumbit entry into aentry table, key is entry id, value is rest of information
-        let obj = key + ', ' + value;
-        return this.client.query("INSERT INTO entry VALUES ('" + obj + "';", (err, res) => {
+    public async submitEtry(key: string) : Promise<Object> { // sumbit entry into entry table, key is entry 
+        return this.client.query("INSERT INTO entry VALUES ('" + key + "';", (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
@@ -63,7 +62,7 @@ export class Database {
 
     public async voteFor(key: string, value: string) : Promise<Object> {// insert a new row into vote row where key is competition id, value is vote information
         let obj = key + ', ' + value;
-        return this.client.query("INSERT INTO vote VALUES ('" + obj + "';", (err, res) => {
+        return this.client.query("INSERT INTO vote VALUES ('" + obj + "');", (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
@@ -71,8 +70,8 @@ export class Database {
         });
     }
 
-    public async getVoteTotal(key: string) : Promise<Object> { // gets total votes of a competition where key is competition id 
-        return this.client.query('SELECT COUNT(*) AS votetotal FROM vote WHERE competition_id =' + key + ";", (err, res) => {
+    public async getVoteTotal(key: string) : Promise<Object> { // gets total votes of a entry where key is entry id 
+        return this.client.query('SELECT COUNT(*) AS votetotal FROM vote WHERE entry_id =' + key + ";", (err, res) => {
             if (err) throw err;
             for (let row of res.rows) {
               console.log(JSON.stringify(row));
