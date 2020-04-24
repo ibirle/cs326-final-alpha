@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node ./server-code/server.ts"
+    "start": "tsc && ts-node ./server-code/server.ts"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/ibirle/cs326-final-alpha#readme",
   "dependencies": {
+    "@types/bootstrap": "^4.3.2",
+    "@types/jquery": "^3.3.35",
     "@types/node": "^13.13.2",
+    "browserify": "^16.5.1",
     "express": "^4.17.1",
     "mongodb": "^3.5.6",
     "pg": "7.12.1",

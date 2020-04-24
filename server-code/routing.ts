@@ -28,7 +28,7 @@ export class RoutingServer {
 		this.router.post('/getEntryPicture', this.getEntryPicturesHandler.bind(this));
 		this.router.post('/voteFor', this.voteForHandler.bind(this));
 		this.router.post('/getVoteTotal', this.getVoteTotalHandler.bind(this));
-
+		this.router.post('/getAccount', this.getAccountHandler.bind(this));
 		this.server.use('/api', this.router);
 	}
 
@@ -57,22 +57,29 @@ export class RoutingServer {
 	}
 
 	private async getEntryPicturesHandler(request, response) : Promise<void> {
-		response.write("TEST");
+		let queryResponse = await this.db.getVoteTotal(request.body.entryID);
+		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async voteForHandler(request, response) : Promise<void> {
-		let queryResponse = await this.db.voteForQuery(request.body.entryID, request.body.userID);
+		let value = (request.body.entryID) + ", " + (request.userID);
+		let queryResponse = await this.db.voteForQuery(request.body.challengeID, value);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
 	private async getVoteTotalHandler(request, response) : Promise<void> {
-		let queryResponse = this.db.getVoteTotal(request.body.entryID);
+		let queryResponse = await this.db.getVoteTotal(request.body.entryID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
 
+	private async getAccountHandler(request, response) : Promise<void> {
+		let queryResponse = await this.db.getAccount(request.body.userID);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
+	}
 
 	public listen(port) : void  {
 		console.log(process.env.PORT || port);
