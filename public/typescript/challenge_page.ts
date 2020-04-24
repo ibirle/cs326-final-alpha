@@ -1,8 +1,17 @@
+//hi5
+
 $('.carousel').carousel({
     interval: false
 });
 
-function entryTab()
+var textarea = $('.form-control');
+textarea.on("input", function () {
+    $(this).css("height", ""); //reset the height
+    $(this).css("height", Math.min($(this).prop('scrollHeight'), 200) + "px");
+});
+
+
+export function entryTab()
 {
     $("#entry-tab-content").show();
     $("#submit-tab-content").hide();
@@ -13,7 +22,7 @@ function entryTab()
     $("#comment-tab").removeClass("selected");
 }
 
-function submitTab()
+export function submitTab()
 {
     $("#entry-tab-content").hide();
     $("#submit-tab-content").show();
@@ -24,7 +33,7 @@ function submitTab()
     $("#comment-tab").removeClass("selected");
 }
 
-function commentTab()
+export function commentTab()
 {
     $("#entry-tab-content").hide();
     $("#submit-tab-content").hide();
@@ -34,11 +43,4 @@ function commentTab()
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
 }
-
-var textarea = $('.form-control');
-textarea.on("input", function () {
-    $(this).css("height", ""); //reset the height
-    $(this).css("height", Math.min($(this).prop('scrollHeight'), 200) + "px");
-});
-
 
