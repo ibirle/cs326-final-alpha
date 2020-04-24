@@ -74,7 +74,6 @@ function fillChallengesWeekly(challenges) {
     console.log("hi2");
 }
 function fillChallengesDaily(challenges) {
-    console.log("here");
     let row = $("#daily-cards-row");
     let c;
     for (c of challenges) {
@@ -83,7 +82,6 @@ function fillChallengesDaily(challenges) {
     }
 }
 function createDailyCard(challenge) {
-    console.log("here 2");
     let col = $('<div/>', {
         "class": 'col-sm-12 col-md-6 col-lg-4'
     });

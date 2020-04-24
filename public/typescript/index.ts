@@ -47,7 +47,6 @@ function separateChals(challenges) {
 }
 
 function fillChallengesWeekly(challenges) {
-    console.log("hi");
     $("#weekly").append( "<a href='challenge_page.html' class='text-dark'>" +
                                 "<div id='weeklyCard' class='card'>" +
                                     "<img src='" + challenges[0].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
@@ -56,7 +55,6 @@ function fillChallengesWeekly(challenges) {
                                     "</div>" +
                                 "</div>" +
                             "</a>");
-    console.log("hi2");
     $("#weekly").append( "<a href='challenge_page.html' class='text-dark'>" +
                                 "<div id='weeklyCard' class='card'>" +
                                     "<img src='" + challenges[1].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
@@ -65,7 +63,6 @@ function fillChallengesWeekly(challenges) {
                                     "</div>" +
                                 "</div>" +
                             "</a>");
-    console.log("hi2");
 }
 
 function fillChallengesDaily(challenges) {
