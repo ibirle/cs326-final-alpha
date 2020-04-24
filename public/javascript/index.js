@@ -16,8 +16,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 $(document).ready(function () {
     return __awaiter(this, void 0, void 0, function* () {
         let challenges = yield loadChallenges();
-        console.log(challenges);
-        fillChallenges(challenges);
+        let chals = separateChals(challenges);
+        fillChallengesWeekly(chals[0]);
+        fillChallengesDaily(chals[1]);
     });
 });
 function loadChallenges() {
@@ -32,5 +33,20 @@ function loadChallenges() {
         return response.json();
     });
 }
-function fillChallenges(challenges) {
+function separateChals(challenges) {
+    let weeklies = new Array();
+    let dailies = new Array();
+    for (let i = 0; i < challenges.rows.length; i++) {
+        if (challenges.rows[i]["competition_type"] === "weekly") {
+            weeklies.push(challenges.rows[i]);
+        }
+        else {
+            dailies.push(challenges.rows[i]);
+        }
+    }
+    return ([weeklies, dailies]);
+}
+function fillChallengesWeekly(challenges) {
+}
+function fillChallengesDaily(challenges) {
 }

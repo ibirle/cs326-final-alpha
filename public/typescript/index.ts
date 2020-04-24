@@ -9,9 +9,9 @@ function getChallenge(){
 
 $(document).ready(async function() {
     let challenges = await loadChallenges();
-    console.log(challenges);
-    fillChallengesWeekly(challenges);
-    fillChallengesDaily(challenges);
+    let chals = separateChals(challenges);
+    fillChallengesWeekly(chals[0]);
+    fillChallengesDaily(chals[1]);
 })
 
 async function loadChallenges() {
@@ -23,6 +23,20 @@ async function loadChallenges() {
     });
     return response.json();
 
+}
+
+function separateChals(challenges) {
+    let weeklies = new Array();
+    let dailies = new Array();
+    for (let i=0; i < challenges.rows.length; i++) {
+        if (challenges.rows[i]["competition_type"] === "weekly") {
+            weeklies.push(challenges.rows[i]);
+        }
+        else {
+            dailies.push(challenges.rows[i]);
+        }
+    }
+    return([weeklies, dailies])
 }
 
 function fillChallengesWeekly(challenges) {
