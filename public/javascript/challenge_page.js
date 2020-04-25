@@ -71,5 +71,47 @@ $(document).ready(function () {
         let challenge = yield load(challenge_ID);
         console.log(challenge);
         fillChallenge(challenge);
+        fillEntries(challenge_ID);
+        $(".entry-heart-img").click(function () {
+            $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
+            $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
+        });
     });
 });
+function fillEntries(challenge_ID) {
+    for (let i = 0; i < 8; i++) {
+        console.log("hi" + i);
+        $("#entry-tab-content").append("<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
+            "<div class='entry-heart justify-content-center'>" +
+            "<img class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
+            "</div>" +
+            "<div id='carouselExampleIndicators' class='carousel slide'>" +
+            "<ol class='carousel-indicators'>" +
+            "<li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>" +
+            "<li data-target='#carouselExampleIndicators' data-slide-to='1'></li>" +
+            "<li data-target='#carouselExampleIndicators' data-slide-to='2'></li>" +
+            "</ol>" +
+            "<div class='carousel-inner'>" +
+            "<div class='carousel-item small-img-card active'>" +
+            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='First slide'>" +
+            "</div>" +
+            "<div class='carousel-item small-img-card'>" +
+            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Second slide'>" +
+            "</div>" +
+            "<div class='carousel-item small-img-card'>" +
+            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Third slide'>" +
+            "</div>" +
+            "</div>" +
+            "<a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>" +
+            "<span class='carousel-control-prev-icon' aria-hidden='true'></span>" +
+            "<span class='sr-only'>Previous</span>" +
+            "</a>" +
+            "<a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>" +
+            "<span class='carousel-control-next-icon' aria-hidden='true'></span>" +
+            "<span class='sr-only'>Next</span>" +
+            "</a>" +
+            "</div>" +
+            "</div>");
+    }
+    ;
+}
