@@ -153,7 +153,10 @@ function submitEntry() {
             urls.push(getSignedRequest(file));
         }
         yield Promise.all(urls).catch(err => { console.log(err); alert("Upload Failed"); return; });
+        console.log(urls);
         let challenge_ID = parseInt(window.location.search.substring(13));
+        console.log(challenge_ID);
+        console.log(urls[0]);
         let data = {
             "user_ID": 1,
             "competition_ID": challenge_ID,
