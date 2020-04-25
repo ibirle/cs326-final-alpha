@@ -42,6 +42,9 @@ export class Database {
     }
 
     public async submitEntryQuery(user_ID, competition_ID, urls) : Promise<Object> { // sumbit entry into entry table, key is entry 
+        console.log(user_ID);
+        console.log(competition_ID);
+        console.log(urls);
         return this.client.query('INSERT INTO entry("user_ID", "competition_ID", entry_pics) VALUES($1, $2, $3);', [user_ID, competition_ID, urls]).catch(err => { console.log(err);});
     }
 
