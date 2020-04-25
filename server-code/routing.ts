@@ -93,6 +93,7 @@ export class RoutingServer {
 		const s3Params = {
 		  Bucket: S3_BUCKET,
 		  Key: fileName,
+		  Expires: 60,
 		  ContentType: fileType,
 		  ACL: 'public-read'
 		};
@@ -104,7 +105,7 @@ export class RoutingServer {
 		  }
 		  const returnData = {
 			signedRequest: data,
-			url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+			url: "https://" + S3_BUCKET + ".s3.amazonaws.com/" + fileName
 		  };
 		  res.write(JSON.stringify(returnData));
 		  res.end();

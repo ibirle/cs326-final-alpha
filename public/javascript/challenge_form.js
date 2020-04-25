@@ -26,6 +26,7 @@ function uploadFile(file, signedRequest, url) {
     const xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);
     xhr.onreadystatechange = () => {
+        console.log(url);
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 alert("Successfully Uploaded");
