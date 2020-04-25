@@ -1,6 +1,6 @@
-document.getElementById("cover_image").onchange = () => {
+document.getElementById("cover_image")!.onchange = () => {
     const fileInput = document.getElementById('cover_image') as HTMLInputElement;
-    const file = fileInput.files[0];
+    const file = fileInput.files![0];
     if(file == null){
       return alert('No file selected.');
     }
