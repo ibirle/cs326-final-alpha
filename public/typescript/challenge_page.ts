@@ -153,10 +153,11 @@ async function submitEntry(){
     let challenge_ID = parseInt(window.location.search.substring(13));
     console.log(challenge_ID);
     console.log(urls[0]);
+    console.log(JSON.stringify(urls));
     let data = {
         "user_ID": 1,
         "competition_ID": challenge_ID,
-        "urls": urls
+        "urls": JSON.stringify(urls)
     };
 
     await fetch('/api/submitEntry', {
