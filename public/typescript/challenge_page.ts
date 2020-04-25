@@ -1,6 +1,3 @@
-import { url } from "inspector";
-
-//hi5
 export{}
 $('.carousel').carousel({
     interval: false
@@ -150,9 +147,10 @@ async function submitEntry(){
     }
 
     await Promise.all(urls).catch(err => { console.log(err); alert("Upload Failed"); return;});
-
+    let challenge_ID = parseInt(window.location.search.substring(13));
     let data = {
         "user_ID": 1,
+        "competition_ID": challenge_ID,
         "urls": urls
     };
 

@@ -28,7 +28,7 @@ export class Database {
     }
 
     public async postChallengeQuery(recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type) : Promise<Object> {
-        return this.client.query("INSERT INTO prod.competition (recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type) VALUES($1, $2, $3, $4, $5, $6, $7, $8);",
+        return this.client.query("INSERT INTO competition (recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type) VALUES($1, $2, $3, $4, $5, $6, $7, $8);",
         [recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type] ).catch(err => { console.log(err);});
     }
 
@@ -41,14 +41,8 @@ export class Database {
         });
     }
 
-    public async submitEtry(key: string) : Promise<Object> { // sumbit entry into entry table, key is entry 
-        return this.client.query("INSERT INTO entry VALUES ('" + key + "';", (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
-        //note it will only return an the json if submission was successful
+    public async submitEntryQuery(user_ID, competition_ID, urls) : Promise<Object> { // sumbit entry into entry table, key is entry 
+        return this.client.query('INSERT INTO competition(user_ID, competition_ID, entry_pics) = VALUES($1, $2, $3);', [user_ID, competition_ID, urls] ).catch(err => { console.log(err);});
     }
 
     public async getEntryPictures(key: string) : Promise<Object> { // get all images for entry_image table where is entry id
