@@ -128,14 +128,29 @@ $(document).ready(function () {
         let challenge = yield load(challenge_ID);
         let entries = yield loadEntries(challenge_ID);
         fillChallenge(challenge);
-        console.log("hi");
         fillEntries(entries);
         $(".entry-heart-img").click(function () {
+            let entryID = $(this).attr("id");
+            voteForEntry(challenge_ID, entryID);
             $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
             $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
         });
     });
 });
+function voteForEntry(challenge_ID, entry_ID) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/voteFor', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({ "challengeID": challenge_ID,
+                "entry_ID": entry_ID,
+                "user_ID": 1 }),
+        });
+        return response.json();
+    });
+}
 function getSignedRequest(file) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch("/api/sign-s3?file-name=" + file.name + "&file-type=" + file.type, {
@@ -190,18 +205,15 @@ function submitEntry() {
 }
 function fillEntries(entries) {
     let entryCars = createEntries(entries);
-    console.log(entryCars);
     $("#entry-tab-content").append(entryCars);
 }
 function createEntries(entries) {
-    console.log(entries);
     let entryStuff = "";
     for (let i = 0; i < entries.rows.length; i++) {
         let entryPics = JSON.parse("[" + entries.rows[i].entry_pics.substring(1, entries.rows[i].entry_pics.length - 1) + "]");
-        console.log(entryPics.length);
         entryStuff = entryStuff.concat("<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
             "<div class='entry-heart justify-content-center'>" +
-            "<img class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
+            "<img id='" + entries.rows[i].entry_ID + "'class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
             "</div>" +
             "<div id='carouselExampleIndicators" + entries.rows[i].entry_ID + "' class='carousel slide'>" +
             "<ol class='carousel-indicators'>" +
