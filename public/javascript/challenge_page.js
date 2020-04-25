@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,7 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+//hi5
 $('.carousel').carousel({
     interval: false
 });
@@ -169,7 +168,6 @@ function submitEntry() {
 }
 function fillEntries(challenge_ID) {
     for (let i = 0; i < 8; i++) {
-        console.log("hi" + i);
         $("#entry-tab-content").append("<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
             "<div class='entry-heart justify-content-center'>" +
             "<img class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
