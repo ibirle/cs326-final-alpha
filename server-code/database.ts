@@ -82,4 +82,12 @@ export class Database {
             }
         });
     }
+    public async submiComment(key: string) : Promise<Object> { // sumbit comment into comment table, key is comment 
+        return this.client.query("INSERT INTO comment VALUES ('" + key + "';", (err, res) => {
+            if (err) throw err;
+            for (let row of res.rows) {
+              console.log(JSON.stringify(row));
+            }
+        });
+    }
 }

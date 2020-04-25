@@ -25,6 +25,7 @@
     "@types/jquery": "^3.3.35",
     "@types/node": "^13.13.2",
     "browserify": "^16.5.1",
+    "expess": "0.0.1-security",
     "express": "^4.17.1",
     "mongodb": "^3.5.6",
     "pg": "7.12.1",

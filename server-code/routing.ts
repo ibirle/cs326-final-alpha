@@ -29,6 +29,8 @@ export class RoutingServer {
 		this.router.post('/voteFor', this.voteForHandler.bind(this));
 		this.router.post('/getVoteTotal', this.getVoteTotalHandler.bind(this));
 		this.router.post('/getAccount', this.getAccountHandler.bind(this));
+		this.router.post('/submitComment', this.submitCommentHandler.bind(this));
+
 		this.server.use('/api', this.router);
 	}
 
@@ -81,6 +83,11 @@ export class RoutingServer {
 		response.end();
 	}
 
+	private async submitCommentHandler(request, response) : Promise<void> {
+		let queryResponse = await this.db.submitComment(request.body.comment);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
+	}
 	public listen(port) : void  {
 		console.log(process.env.PORT || port);
 		this.server.listen(process.env.PORT || port, function () { return console.log("Server is running..."); });
