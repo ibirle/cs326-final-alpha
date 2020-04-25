@@ -1,7 +1,6 @@
-import { url } from "inspector";
+
 
 //hi5
-export{}
 $('.carousel').carousel({
     interval: false
 });
@@ -165,7 +164,6 @@ async function submitEntry(){
 
 function fillEntries(challenge_ID) {
     for (let i = 0; i<8; i++) {
-        console.log("hi" + i);
         $("#entry-tab-content").append(
                 "<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
                     "<div class='entry-heart justify-content-center'>" +
