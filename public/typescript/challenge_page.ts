@@ -139,25 +139,26 @@ async function uploadFile(file, signedRequest, url){
 
 async function submitEntry(){
     let files = (document.getElementById('entry-file-upload') as HTMLInputElement).files;
-    let urls: Array<Promise<string>> = [];
+    let urlsPromises: Array<Promise<string>> = [];
     let file;
     for(file of files!){
         if(file == null){
             return alert('No file selected.');
           }
-         urls.push(getSignedRequest(file));
+         urlsPromises.push(getSignedRequest(file));
     }
-
-    await Promise.all(urls).catch(err => { console.log(err); alert("Upload Failed"); return;});
-    console.log(urls);
+    let urls: Array<string> = [];
+    for(let p of urlsPromises){
+        let url= await p.catch(err => { console.log(err); alert("Upload Failed"); return;}) as string;
+        console.log(url);
+        urls.push(url);
+    }
     let challenge_ID = parseInt(window.location.search.substring(13));
     console.log(challenge_ID);
-    console.log(urls[0]);
-    console.log(JSON.stringify(urls));
     let data = {
         "user_ID": 1,
         "competition_ID": challenge_ID,
-        "urls": JSON.stringify(urls)
+        "urls": urls
     };
 
     await fetch('/api/submitEntry', {
