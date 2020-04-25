@@ -13,5 +13,5 @@
         "pretty": true,
         "module": "commonjs",
     },
-    "files": ["./public/typescript/Account.ts", "./public/typescript/challenge_page.ts", "./public/typescript/forgot.ts", "./public/typescript/index.ts", "./public/typescript/login.ts", "./public/typescript/newUser.ts"] // change me
+    "files": ["./public/typescript/Account.ts", "./public/typescript/challenge_form.ts", "./public/typescript/challenge_page.ts", "./public/typescript/forgot.ts", "./public/typescript/index.ts", "./public/typescript/login.ts", "./public/typescript/newUser.ts"] // change me
 }

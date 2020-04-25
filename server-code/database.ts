@@ -23,8 +23,8 @@ export class Database {
         return this.client.query("SELECT * FROM competition").catch(err => { console.log(err);});
     }
     
-    public async getChallengeQuery(challengeID: number) : Promise<Object> {
-        return this.client.query("SELECT * FROM competition WHERE 'competition_ID' = $1", [challengeID] ).catch(err => { console.log(err);});
+    public async getChallengeQuery(challengeID: string) : Promise<Object> {
+        return this.client.query('SELECT * FROM competition WHERE "competition_ID" = $1;', [challengeID] ).catch(err => { console.log(err);});
     }
 
     public async getEntries(key: string) : Promise<Object> { // get all entries for a given competition, key is competition id

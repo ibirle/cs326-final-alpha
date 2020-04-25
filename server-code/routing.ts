@@ -1,13 +1,16 @@
-let express = require('express');
+const express = require('express');
+const aws = require('aws-sdk');
+const S3_BUCKET = process.env.S3_BUCKET;
 
 export class RoutingServer {
 
     private db;
 
     private server = express();
-    private router = express.Router();
+	private router = express.Router();
 
     constructor(db) {
+		
 		this.db = db;
 
 		this.router.use((request, response, next) => {
@@ -29,8 +32,12 @@ export class RoutingServer {
 		this.router.post('/voteFor', this.voteForHandler.bind(this));
 		this.router.post('/getVoteTotal', this.getVoteTotalHandler.bind(this));
 		this.router.post('/getAccount', this.getAccountHandler.bind(this));
+<<<<<<< HEAD
 		this.router.post('/submitComment', this.submitCommentHandler.bind(this));
 
+=======
+		this.router.get('/sign-s3', this.signS3Handler.bind(this));
+>>>>>>> ebeec46401fbe9d53ed37e7c91ef2d301dedc168
 		this.server.use('/api', this.router);
 	}
 
@@ -41,7 +48,7 @@ export class RoutingServer {
 	}
 
 	private async getChallengeHandler(request, response) : Promise<void> {
-		let queryResponse = await this.db.getChallengesQuery(request.body.challengeID);
+		let queryResponse = await this.db.getChallengeQuery(request.body.challengeID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
@@ -83,13 +90,44 @@ export class RoutingServer {
 		response.end();
 	}
 
+<<<<<<< HEAD
 	private async submitCommentHandler(request, response) : Promise<void> {
 		let queryResponse = await this.db.submitComment(request.body.comment);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
+=======
+	private async signS3Handler(req, res) : Promise<void> {
+		aws.config.region = 'us-east-1';
+		const s3 = new aws.S3();
+		const fileName = req.query['file-name'];
+		const fileType = req.query['file-type'];
+		const s3Params = {
+		  Bucket: S3_BUCKET,
+		  Key: fileName,
+		  Expires: 60,
+		  ContentType: fileType,
+		  ACL: 'public-read'
+		};
+	  
+		s3.getSignedUrl('putObject', s3Params, (err, data) => {
+		  if(err){
+			console.log(err);
+			return res.end();
+		  }
+		  const returnData = {
+			signedRequest: data,
+			url: "https://" + S3_BUCKET + ".s3.amazonaws.com/" + fileName
+		  };
+		  res.write(JSON.stringify(returnData));
+		  res.end();
+		});
+	}
+
+>>>>>>> ebeec46401fbe9d53ed37e7c91ef2d301dedc168
 	public listen(port) : void  {
 		console.log(process.env.PORT || port);
 		this.server.listen(process.env.PORT || port, function () { return console.log("Server is running..."); });
 	}
 }
+

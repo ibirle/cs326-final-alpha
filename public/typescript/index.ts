@@ -47,22 +47,16 @@ function separateChals(challenges) {
 }
 
 function fillChallengesWeekly(challenges) {
-    $("#weekly").append( "<a href='challenge_page.html' class='text-dark'>" +
-                                "<div id='weeklyCard' class='card'>" +
-                                    "<img src='" + challenges[0].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
-                                    "<div class='centered'>" +
-                                        "<h5>" + challenges[0].competition_name + "</h5>" +
+    for (let i = 0; i < challenges.length; i++) {
+        $("#weekly").append( "<a href='/challenge_page.html?challengeID=" + challenges[i].competition_ID + "' class='text-dark'>" +
+                                    "<div id='weeklyCard' class='card'>" +
+                                        "<img src='" + challenges[i].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
+                                        "<div class='centered'>" +
+                                            "<h5>" + challenges[i].competition_name + "</h5>" +
+                                        "</div>" +
                                     "</div>" +
-                                "</div>" +
-                            "</a>");
-    $("#weekly").append( "<a href='challenge_page.html' class='text-dark'>" +
-                                "<div id='weeklyCard' class='card'>" +
-                                    "<img src='" + challenges[1].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
-                                    "<div class='centered'>" +
-                                        "<h5>" + challenges[1].competition_name + "</h5>" +
-                                    "</div>" +
-                                "</div>" +
-                            "</a>");
+                                "</a>");
+    }
 }
 
 function fillChallengesDaily(challenges) {

@@ -24,6 +24,7 @@
     "@types/bootstrap": "^4.3.2",
     "@types/jquery": "^3.3.35",
     "@types/node": "^13.13.2",
+    "aws-sdk": "^2.663.0",
     "browserify": "^16.5.1",
     "expess": "0.0.1-security",
     "express": "^4.17.1",
