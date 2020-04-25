@@ -144,3 +144,21 @@
     border-width: 2px;
     border-color: black;
 }
+
+.entry-heart {
+    z-index: 1;
+    display: flex;
+    position: absolute;
+}
+
+.entry-heart-img {
+    visibility: hidden;
+}
+
+.entry-heart:hover .entry-heart-img {
+    visibility: visible;
+}
+
+.entry-heart-img-voted {
+    visibility: visible;
+}
