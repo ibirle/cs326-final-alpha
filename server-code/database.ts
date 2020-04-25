@@ -32,19 +32,11 @@ export class Database {
         [recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type] ).catch(err => { console.log(err);});
     }
 
-    public async getEntries(key: string) : Promise<Object> { // get all entries for a given competition, key is competition id
-        return this.client.query("SELECT * FROM entry WHERE competition_id = " + key + ";", (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
+    public async getEntriesQuery(challengeID: string) : Promise<Object> { // get all entries for a given competition, key is competition id
+        return this.client.query('SELECT * FROM entry WHERE "competition_ID" = $1;', [challengeID] ).catch(err => { console.log(err);});
     }
 
     public async submitEntryQuery(user_ID, competition_ID, urls) : Promise<Object> { // sumbit entry into entry table, key is entry 
-        console.log(user_ID);
-        console.log(competition_ID);
-        console.log(urls);
         return this.client.query('INSERT INTO entry("user_ID", "competition_ID", entry_pics) VALUES($1, $2, $3);', [user_ID, competition_ID, urls]).catch(err => { console.log(err);});
     }
 
@@ -57,14 +49,8 @@ export class Database {
         });
     }
 
-    public async voteFor(key: string, value: string) : Promise<Object> {// insert a new row into vote row where key is competition id, value is vote information
-        let obj = key + ', ' + value;
-        return this.client.query("INSERT INTO vote VALUES ('" + obj + "');", (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
+    public async voteForQuery(user_ID: string, competition_ID: string, entry_ID: string) : Promise<Object> {// insert a new row into vote row where key is competition id, value is vote information
+        return this.client.query('INSERT INTO vote("competition_ID", "entry_ID", "user_ID") VALUES($1, $2, $3) ON conflict ("competition_ID", "user_ID") DO update set "entry_ID" = $2 where prod.vote."competition_ID" = $1 and prod.vote."user_ID" = $3;', [competition_ID, entry_ID, user_ID]).catch(err => { console.log(err);});
     }
 
     public async getVoteTotal(key: string) : Promise<Object> { // gets total votes of a entry where key is entry id 
@@ -84,12 +70,12 @@ export class Database {
             }
         });
     }
-    public async submiComment(key: string) : Promise<Object> { // sumbit comment into comment table, key is comment 
-        return this.client.query("INSERT INTO comment VALUES ('" + key + "';", (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
+
+    public async submitCommentQuery(content, competition_ID, user_ID) : Promise<Object> { // sumbit comment into comment table, key is comment 
+        return this.client.query('INSERT INTO comment("content", "competition_ID", "user_ID") VALUES($1, $2, $3);', [content, competition_ID, user_ID]).catch(err => { console.log(err);});
+    }
+
+    public async getCommentsQuery(competition_ID) : Promise<Object> { // sumbit comment into comment table, key is comment 
+        return this.client.query('SELECT * FROM prod.comment INNER JOIN prod.user on prod.comment."user_ID" = prod.user."user_ID" WHERE "competition_ID" = $1;', [competition_ID]).catch(err => { console.log(err);});
     }
 }

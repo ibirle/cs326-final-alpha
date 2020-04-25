@@ -32,8 +32,8 @@ export class RoutingServer {
 		this.router.post('/voteFor', this.voteForHandler.bind(this));
 		this.router.post('/getVoteTotal', this.getVoteTotalHandler.bind(this));
 		this.router.post('/getAccount', this.getAccountHandler.bind(this));
-		this.router.post('/getAccount', this.getAccountHandler.bind(this));
 		this.router.post('/submitComment', this.submitCommentHandler.bind(this));
+		this.router.post('/getComments', this.getCommentsHandler.bind(this));
 		this.router.post('/postChallenge', this.postChallengeHandler.bind(this));
 		this.router.get('/sign-s3', this.signS3Handler.bind(this));
 		this.server.use('/api', this.router);
@@ -71,8 +71,7 @@ export class RoutingServer {
 	}
 
 	private async voteForHandler(request, response) : Promise<void> {
-		let value = (request.body.entryID) + ", " + (request.userID);
-		let queryResponse = await this.db.voteForQuery(request.body.challengeID, value);
+		let queryResponse = await this.db.voteForQuery(request.body.user_ID, request.body.challengeID, request.body.entry_ID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
@@ -90,7 +89,13 @@ export class RoutingServer {
 	}
 
 	private async submitCommentHandler(request, response) : Promise<void> {
-		let queryResponse = await this.db.submitComment(request.body.comment);
+		let queryResponse = await this.db.submitCommentQuery(request.body.content, request.body.competition_ID, request.body.user_ID);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
+	}
+
+	private async getCommentsHandler(request, response) : Promise<void> {
+		let queryResponse = await this.db.getCommentsQuery(request.body.competition_ID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
