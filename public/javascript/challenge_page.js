@@ -117,6 +117,18 @@ function load(challenge_ID) {
         return response.json();
     });
 }
+function loadEntries(challenge_ID) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/getEntries', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({ "challengeID": challenge_ID }),
+        });
+        return response.json();
+    });
+}
 function fillChallenge(challenge) {
     $("#recipe").append("<div id='recipe-block' class='row no-gutter'>" +
         "<div class='col-lg-4 col-md-12'>" +
@@ -134,16 +146,32 @@ $(document).ready(function () {
     return __awaiter(this, void 0, void 0, function* () {
         let challenge_ID = parseInt(window.location.search.substring(13));
         let challenge = yield load(challenge_ID);
-        console.log(challenge);
+        let entries = yield loadEntries(challenge_ID);
         fillChallenge(challenge);
-        fillEntries(challenge_ID);
+        fillEntries(entries);
         $(".entry-heart-img").click(function () {
+            let entryID = $(this).attr("id");
+            voteForEntry(challenge_ID, entryID);
             $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
             $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
         });
         fillComments();
     });
 });
+function voteForEntry(challenge_ID, entry_ID) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/voteFor', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({ "challengeID": challenge_ID,
+                "entry_ID": entry_ID,
+                "user_ID": 1 }),
+        });
+        return response.json();
+    });
+}
 function getSignedRequest(file) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch("/api/sign-s3?file-name=" + file.name + "&file-type=" + file.type, {
@@ -197,39 +225,60 @@ function submitEntry() {
         location.reload();
     });
 }
-function fillEntries(challenge_ID) {
-    for (let i = 0; i < 8; i++) {
-        $("#entry-tab-content").append("<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
+function fillEntries(entries) {
+    let entryCars = createEntries(entries);
+    $("#entry-tab-content").append(entryCars);
+}
+function createEntries(entries) {
+    let entryStuff = "";
+    for (let i = 0; i < entries.rows.length; i++) {
+        let entryPics = JSON.parse("[" + entries.rows[i].entry_pics.substring(1, entries.rows[i].entry_pics.length - 1) + "]");
+        entryStuff = entryStuff.concat("<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
             "<div class='entry-heart justify-content-center'>" +
-            "<img class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
+            "<img id='" + entries.rows[i].entry_ID + "'class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
             "</div>" +
-            "<div id='carouselExampleIndicators' class='carousel slide'>" +
+            "<div id='carouselExampleIndicators" + entries.rows[i].entry_ID + "' class='carousel slide'>" +
             "<ol class='carousel-indicators'>" +
-            "<li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>" +
-            "<li data-target='#carouselExampleIndicators' data-slide-to='1'></li>" +
-            "<li data-target='#carouselExampleIndicators' data-slide-to='2'></li>" +
+            "<li data-target='#carouselExampleIndicators" + entries.rows[i].entry_ID + "' data-slide-to='0' class='active'></li>" +
+            "<li data-target='#carouselExampleIndicators" + entries.rows[i].entry_ID + "' data-slide-to='1'></li>" +
+            "<li data-target='#carouselExampleIndicators" + entries.rows[i].entry_ID + "' data-slide-to='2'></li>" +
             "</ol>" +
-            "<div class='carousel-inner'>" +
-            "<div class='carousel-item small-img-card active'>" +
-            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='First slide'>" +
-            "</div>" +
-            "<div class='carousel-item small-img-card'>" +
-            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Second slide'>" +
-            "</div>" +
-            "<div class='carousel-item small-img-card'>" +
-            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Third slide'>" +
-            "</div>" +
-            "</div>" +
-            "<a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>" +
+            "<div class='carousel-inner'>");
+        /*
+        entryStuff = entryStuff.concat(
+                            "<div class='carousel-item small-img-card active'>"+
+                                "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='First slide'>"+
+                            "</div>"+
+                            "<div class='carousel-item small-img-card'>"+
+                                "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Second slide'>"+
+                            "</div>"+
+                            "<div class='carousel-item small-img-card'>"+
+                                "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Third slide'>"+
+                            "</div>");
+        */
+        for (let j = 0; j < entryPics.length; j++) {
+            if (j === 0) {
+                entryStuff = entryStuff.concat("<div class='carousel-item small-img-card active'>" +
+                    "<img class='d-block w-100' src='" + entryPics[j] + "' alt='First slide'>" +
+                    "</div>");
+            }
+            else {
+                entryStuff = entryStuff.concat("<div class='carousel-item small-img-card'>" +
+                    "<img class='d-block w-100' src='" + entryPics[j] + "' alt='First slide'>" +
+                    "</div>");
+            }
+        }
+        entryStuff = entryStuff.concat("</div>" +
+            "<a class='carousel-control-prev' href='#carouselExampleIndicators" + entries.rows[i].entry_ID + "' role='button' data-slide='prev'>" +
             "<span class='carousel-control-prev-icon' aria-hidden='true'></span>" +
             "<span class='sr-only'>Previous</span>" +
             "</a>" +
-            "<a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>" +
+            "<a class='carousel-control-next' href='#carouselExampleIndicators" + entries.rows[i].entry_ID + "' role='button' data-slide='next'>" +
             "<span class='carousel-control-next-icon' aria-hidden='true'></span>" +
             "<span class='sr-only'>Next</span>" +
             "</a>" +
             "</div>" +
             "</div>");
     }
-    ;
+    return entryStuff;
 }

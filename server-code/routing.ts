@@ -71,8 +71,7 @@ export class RoutingServer {
 	}
 
 	private async voteForHandler(request, response) : Promise<void> {
-		let value = (request.body.entryID) + ", " + (request.userID);
-		let queryResponse = await this.db.voteForQuery(request.body.challengeID, value);
+		let queryResponse = await this.db.voteForQuery(request.body.user_ID, request.body.challengeID, request.body.entry_ID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
