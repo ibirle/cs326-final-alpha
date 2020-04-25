@@ -157,16 +157,22 @@ function uploadFile(file, signedRequest, url) {
 function submitEntry() {
     return __awaiter(this, void 0, void 0, function* () {
         let files = document.getElementById('entry-file-upload').files;
-        let urls = [];
+        let urlsPromises = [];
         let file;
         for (file of files) {
             if (file == null) {
                 return alert('No file selected.');
             }
-            urls.push(getSignedRequest(file));
+            urlsPromises.push(getSignedRequest(file));
         }
-        yield Promise.all(urls).catch(err => { console.log(err); alert("Upload Failed"); return; });
+        let urls = [];
+        for (let p of urlsPromises) {
+            let url = yield p.catch(err => { console.log(err); alert("Upload Failed"); return; });
+            console.log(url);
+            urls.push(url);
+        }
         let challenge_ID = parseInt(window.location.search.substring(13));
+        console.log(challenge_ID);
         let data = {
             "user_ID": 1,
             "competition_ID": challenge_ID,
@@ -174,6 +180,9 @@ function submitEntry() {
         };
         yield fetch('/api/submitEntry', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
             body: JSON.stringify(data)
         }).catch(err => { console.log(err); alert("Upload Failed"); return; });
         alert("Upload Successful");
