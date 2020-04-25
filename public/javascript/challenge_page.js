@@ -40,6 +40,51 @@ function commentTab() {
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
 }
+function submitComment() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/submitCommnet', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({}),
+        });
+        return response.json();
+    });
+}
+function getUser() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/getAccount', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({}),
+        });
+        return response.json();
+    });
+}
+/*
+async function addcomment(){
+    let com =  submitComment();
+    let user =  getUser();
+    let comment = document.getElementById('tofill');
+    let fill = "<div class='row no-gutter comment-card'> " +
+    "<div id='profile-info' class='col-2'> " +
+      "<div class='d-flex justify-content-center'>" +
+        "<img src='pictures/defaultProfile.jpg' class='profile-picture' alt='Profile Picture'>" +
+      "</div>" +
+      "<div class='d-flex justify-content-center'>" +
+        "<h5>" + com.user_ID + "</h5>" +
+      "</div>" +
+    "</div>" +
+    "<div id='comment-body' class='col-10'> " +
+        "<p>"+ com.content + "</p>" +
+    "</div> "+
+"</div>";
+    comment.innerHTML = fill;
+}
+*/
 function load(challenge_ID) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch('/api/getChallenge', {
