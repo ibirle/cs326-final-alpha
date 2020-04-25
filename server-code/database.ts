@@ -52,14 +52,8 @@ export class Database {
         });
     }
 
-    public async voteFor(key: string, value: string) : Promise<Object> {// insert a new row into vote row where key is competition id, value is vote information
-        let obj = key + ', ' + value;
-        return this.client.query("INSERT INTO vote VALUES ('" + obj + "');", (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
+    public async voteForQuery(user_ID: string, competition_ID: string, entry_ID: string) : Promise<Object> {// insert a new row into vote row where key is competition id, value is vote information
+        return this.client.query('INSERT INTO vote("competition_ID", "entry_ID", "user_ID") VALUES($1, $2, $3) ON conflict ("competition_ID", "user_ID") DO update set "entry_ID" = $2 where prod.vote."competition_ID" = $1 and prod.vote."user_ID" = $3;', [competition_ID, entry_ID, user_ID]).catch(err => { console.log(err);});
     }
 
     public async getVoteTotal(key: string) : Promise<Object> { // gets total votes of a entry where key is entry id 
