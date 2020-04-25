@@ -32,7 +32,12 @@ export class RoutingServer {
 		this.router.post('/voteFor', this.voteForHandler.bind(this));
 		this.router.post('/getVoteTotal', this.getVoteTotalHandler.bind(this));
 		this.router.post('/getAccount', this.getAccountHandler.bind(this));
+<<<<<<< HEAD
+		this.router.post('/submitComment', this.submitCommentHandler.bind(this));
+
+=======
 		this.router.get('/sign-s3', this.signS3Handler.bind(this));
+>>>>>>> ebeec46401fbe9d53ed37e7c91ef2d301dedc168
 		this.server.use('/api', this.router);
 	}
 
@@ -85,6 +90,13 @@ export class RoutingServer {
 		response.end();
 	}
 
+<<<<<<< HEAD
+	private async submitCommentHandler(request, response) : Promise<void> {
+		let queryResponse = await this.db.submitComment(request.body.comment);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
+	}
+=======
 	private async signS3Handler(req, res) : Promise<void> {
 		aws.config.region = 'us-east-1';
 		const s3 = new aws.S3();
@@ -105,13 +117,14 @@ export class RoutingServer {
 		  }
 		  const returnData = {
 			signedRequest: data,
-			url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
+			url: "https://" + S3_BUCKET + ".s3.amazonaws.com/" + fileName
 		  };
 		  res.write(JSON.stringify(returnData));
 		  res.end();
 		});
 	}
 
+>>>>>>> ebeec46401fbe9d53ed37e7c91ef2d301dedc168
 	public listen(port) : void  {
 		console.log(process.env.PORT || port);
 		this.server.listen(process.env.PORT || port, function () { return console.log("Server is running..."); });
