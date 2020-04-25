@@ -42,7 +42,7 @@ export class Database {
     }
 
     public async submitEntryQuery(user_ID, competition_ID, urls) : Promise<Object> { // sumbit entry into entry table, key is entry 
-        return this.client.query('INSERT INTO entry(user_ID, competition_ID, entry_pics) VALUES($1, $2, $3);', [user_ID, competition_ID, urls]).catch(err => { console.log(err);});
+        return this.client.query("INSERT INTO entry('user_ID', 'competition_ID', 'entry_pics') VALUES($1, $2, $3);", [user_ID, competition_ID, urls]).catch(err => { console.log(err);});
     }
 
     public async getEntryPictures(key: string) : Promise<Object> { // get all images for entry_image table where is entry id
