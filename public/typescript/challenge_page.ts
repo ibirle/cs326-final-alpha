@@ -157,7 +157,7 @@ async function submitEntry(){
     await fetch('/api/submitEntry', {
         method: 'POST',
         body: JSON.stringify(data)
-    });
+    }).catch(err => { console.log(err); alert("Upload Failed"); return;});
     alert("Upload Successful");
 }
 
