@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <form method="POST" action="/api/uploadChallenge">
+    <form id="formBox">
         <div class="rendered-form" style="padding:3%;">
             <div class="formbuilder-text form-group field-competitionName">
                 <label for="competitionName" class="formbuilder-text-label">Competition Name</label>
@@ -44,9 +44,9 @@
                 <label for="detail_image" class="formbuilder-file-label">Image for index page</label>
                 <input type="file" class="form-control" name="detail_image" access="false" id="detail_image">
             </div>
-            <input type="submit" value="Submit">
         </div>
     </form>
+    <button onclick="submit()">Submit</button>
 </body>
 <footer>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

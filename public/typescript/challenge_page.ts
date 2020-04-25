@@ -1,5 +1,7 @@
-//hi5
+import { url } from "inspector";
 
+//hi5
+export{}
 $('.carousel').carousel({
     interval: false
 });
@@ -62,8 +64,9 @@ async function getUser() : Promise<any> {
     return response.json();
 
 }
+
 async function addcomment(){
-    let com =  submitComment();
+    let com =  await submitComment();
     let user =  getUser();
     let comment = document.getElementById('tofill');
     let fill = "<div class='row no-gutter comment-card'> " +
@@ -79,7 +82,7 @@ async function addcomment(){
         "<p>"+ com.content + "</p>" +
     "</div> "+
 "</div>";
-    comment.innerHTML = fill;
+    comment!.innerHTML = fill;
 }
 
 async function load(challenge_ID) {
@@ -114,3 +117,43 @@ $(document).ready(async function() {
     fillChallenge(challenge);
 })
 
+async function getSignedRequest(file): Promise<string>{
+    let response = await fetch("/api/sign-s3?file-name="+file.name+"&file-type="+file.type, {
+        method: 'GET'
+    });
+    let res = await response.json();
+    await uploadFile(file, res.signedRequest, res.url);
+    return res.url;
+}
+
+async function uploadFile(file, signedRequest, url){
+    await fetch(signedRequest, {
+        method: 'PUT',
+        body: file
+    });
+}
+
+async function submitEntry(){
+    let files = (document.getElementById('entry-file-upload') as HTMLInputElement).files;
+    let urls: Array<Promise<string>> = [];
+    let file;
+    for(file of files!){
+        if(file == null){
+            return alert('No file selected.');
+          }
+         urls.push(getSignedRequest(file));
+    }
+
+    await Promise.all(urls).catch(err => { console.log(err); alert("Upload Failed"); return;});
+
+    let data = {
+        "user_ID": 1,
+        "urls": urls
+    };
+
+    await fetch('/api/submitEntry', {
+        method: 'POST',
+        body: JSON.stringify(data)
+    });
+    alert("Upload Successful");
+}

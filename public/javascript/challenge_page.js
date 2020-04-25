@@ -1,4 +1,4 @@
-//hi5
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 $('.carousel').carousel({
     interval: false
 });
@@ -39,6 +40,51 @@ function commentTab() {
     $("#entry-tab").removeClass("selected");
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
+}
+function submitComment() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/submitCommnet', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({}),
+        });
+        return response.json();
+    });
+}
+function getUser() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/getAccount', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({}),
+        });
+        return response.json();
+    });
+}
+function addcomment() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let com = yield submitComment();
+        let user = getUser();
+        let comment = document.getElementById('tofill');
+        let fill = "<div class='row no-gutter comment-card'> " +
+            "<div id='profile-info' class='col-2'> " +
+            "<div class='d-flex justify-content-center'>" +
+            "<img src='pictures/defaultProfile.jpg' class='profile-picture' alt='Profile Picture'>" +
+            "</div>" +
+            "<div class='d-flex justify-content-center'>" +
+            "<h5>" + com.user_ID + "</h5>" +
+            "</div>" +
+            "</div>" +
+            "<div id='comment-body' class='col-10'> " +
+            "<p>" + com.content + "</p>" +
+            "</div> " +
+            "</div>";
+        comment.innerHTML = fill;
+    });
 }
 function load(challenge_ID) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -73,3 +119,44 @@ $(document).ready(function () {
         fillChallenge(challenge);
     });
 });
+function getSignedRequest(file) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch("/api/sign-s3?file-name=" + file.name + "&file-type=" + file.type, {
+            method: 'GET'
+        });
+        let res = yield response.json();
+        yield uploadFile(file, res.signedRequest, res.url);
+        return res.url;
+    });
+}
+function uploadFile(file, signedRequest, url) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(signedRequest, {
+            method: 'PUT',
+            body: file
+        });
+    });
+}
+function submitEntry() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let files = document.getElementById('entry-file-upload').files;
+        let urls = [];
+        let file;
+        for (file of files) {
+            if (file == null) {
+                return alert('No file selected.');
+            }
+            urls.push(getSignedRequest(file));
+        }
+        yield Promise.all(urls).catch(err => { alert(err); return; });
+        let data = {
+            "user_ID": 1,
+            "urls": urls
+        };
+        yield fetch('/api/submitEntry', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+        alert("Upload Successful");
+    });
+}

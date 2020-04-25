@@ -27,6 +27,11 @@ export class Database {
         return this.client.query('SELECT * FROM competition WHERE "competition_ID" = $1;', [challengeID] ).catch(err => { console.log(err);});
     }
 
+    public async postChallengeQuery(recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type) : Promise<Object> {
+        return this.client.query("INSERT INTO prod.competition (recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type) VALUES($1, $2, $3, $4, $5, $6, $7, $8);",
+        [recipe_desc, recipe_link, competition_name, start_time, end_time, cover_link, detail_link, competition_type] ).catch(err => { console.log(err);});
+    }
+
     public async getEntries(key: string) : Promise<Object> { // get all entries for a given competition, key is competition id
         return this.client.query("SELECT * FROM entry WHERE competition_id = " + key + ";", (err, res) => {
             if (err) throw err;
