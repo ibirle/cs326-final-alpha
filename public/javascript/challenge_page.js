@@ -1,4 +1,4 @@
-//hi5
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,6 +8,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 $('.carousel').carousel({
     interval: false
 });
@@ -40,6 +41,51 @@ function commentTab() {
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
 }
+function submitComment() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/submitCommnet', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({}),
+        });
+        return response.json();
+    });
+}
+function getUser() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/getAccount', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({}),
+        });
+        return response.json();
+    });
+}
+function addcomment() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let com = yield submitComment();
+        let user = getUser();
+        let comment = document.getElementById('tofill');
+        let fill = "<div class='row no-gutter comment-card'> " +
+            "<div id='profile-info' class='col-2'> " +
+            "<div class='d-flex justify-content-center'>" +
+            "<img src='pictures/defaultProfile.jpg' class='profile-picture' alt='Profile Picture'>" +
+            "</div>" +
+            "<div class='d-flex justify-content-center'>" +
+            "<h5>" + com.user_ID + "</h5>" +
+            "</div>" +
+            "</div>" +
+            "<div id='comment-body' class='col-10'> " +
+            "<p>" + com.content + "</p>" +
+            "</div> " +
+            "</div>";
+        comment.innerHTML = fill;
+    });
+}
 function load(challenge_ID) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch('/api/getChallenge', {
@@ -71,5 +117,88 @@ $(document).ready(function () {
         let challenge = yield load(challenge_ID);
         console.log(challenge);
         fillChallenge(challenge);
+        fillEntries(challenge_ID);
+        $(".entry-heart-img").click(function () {
+            $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
+            $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
+        });
     });
 });
+function getSignedRequest(file) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch("/api/sign-s3?file-name=" + file.name + "&file-type=" + file.type, {
+            method: 'GET'
+        });
+        let res = yield response.json();
+        yield uploadFile(file, res.signedRequest, res.url);
+        return res.url;
+    });
+}
+function uploadFile(file, signedRequest, url) {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield fetch(signedRequest, {
+            method: 'PUT',
+            body: file
+        });
+    });
+}
+function submitEntry() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let files = document.getElementById('entry-file-upload').files;
+        let urls = [];
+        let file;
+        for (file of files) {
+            if (file == null) {
+                return alert('No file selected.');
+            }
+            urls.push(getSignedRequest(file));
+        }
+        yield Promise.all(urls).catch(err => { console.log(err); alert("Upload Failed"); return; });
+        let data = {
+            "user_ID": 1,
+            "urls": urls
+        };
+        yield fetch('/api/submitEntry', {
+            method: 'POST',
+            body: JSON.stringify(data)
+        });
+        alert("Upload Successful");
+    });
+}
+function fillEntries(challenge_ID) {
+    for (let i = 0; i < 8; i++) {
+        console.log("hi" + i);
+        $("#entry-tab-content").append("<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
+            "<div class='entry-heart justify-content-center'>" +
+            "<img class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
+            "</div>" +
+            "<div id='carouselExampleIndicators' class='carousel slide'>" +
+            "<ol class='carousel-indicators'>" +
+            "<li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>" +
+            "<li data-target='#carouselExampleIndicators' data-slide-to='1'></li>" +
+            "<li data-target='#carouselExampleIndicators' data-slide-to='2'></li>" +
+            "</ol>" +
+            "<div class='carousel-inner'>" +
+            "<div class='carousel-item small-img-card active'>" +
+            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='First slide'>" +
+            "</div>" +
+            "<div class='carousel-item small-img-card'>" +
+            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Second slide'>" +
+            "</div>" +
+            "<div class='carousel-item small-img-card'>" +
+            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Third slide'>" +
+            "</div>" +
+            "</div>" +
+            "<a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>" +
+            "<span class='carousel-control-prev-icon' aria-hidden='true'></span>" +
+            "<span class='sr-only'>Previous</span>" +
+            "</a>" +
+            "<a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>" +
+            "<span class='carousel-control-next-icon' aria-hidden='true'></span>" +
+            "<span class='sr-only'>Next</span>" +
+            "</a>" +
+            "</div>" +
+            "</div>");
+    }
+    ;
+}

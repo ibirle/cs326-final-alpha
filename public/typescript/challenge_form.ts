@@ -1,13 +1,5 @@
-document.getElementById("cover_image")!.onchange = () => {
-    const fileInput = document.getElementById('cover_image') as HTMLInputElement;
-    const file = fileInput.files![0];
-    if(file == null){
-      return alert('No file selected.');
-    }
-    getSignedRequest(file);
-  }
-
-function getSignedRequest(file){
+export{}
+async function getSignedRequest(file){
     const xhr = new XMLHttpRequest();
     xhr.open('GET', "/api/sign-s3?file-name="+file.name+"&file-type="+file.type);
     xhr.onreadystatechange = () => {
@@ -24,14 +16,13 @@ function getSignedRequest(file){
     xhr.send();
 }
 
-function uploadFile(file, signedRequest, url){
+async function uploadFile(file, signedRequest, url){
     const xhr = new XMLHttpRequest();
     xhr.open('PUT', signedRequest);
     xhr.onreadystatechange = () => {
-      console.log(url);
       if(xhr.readyState === 4){
         if(xhr.status === 200){
-            alert("Successfully Uploaded")
+            console.log("Successfully Uploaded");
         }
         else{
           alert('Could not upload file.');
@@ -39,4 +30,39 @@ function uploadFile(file, signedRequest, url){
       }
     };
     xhr.send(file);
+}
+
+async function submit(){
+  alert($("#startDate").val());
+  const coverFileInput = document.getElementById('cover_image') as HTMLInputElement;
+  const coverFile = coverFileInput.files![0];
+  const detailFileInput = document.getElementById('cover_image') as HTMLInputElement;
+  const detailFile = detailFileInput.files![0];
+
+  if(coverFile == null || detailFile == null){
+    return alert('No file selected.');
+  }
+  let coverURL = await getSignedRequest(coverFile);
+  let detailURL = await getSignedRequest(detailFile);
+
+  
+  let data = {
+    recipe_desc: $("#rescipeDesc").val(),
+    recipe_link: $("#competitionName").val(),
+    competition_name: $("#competitionName").val(),
+    start_time: $("#startDate").val(),
+    end_time: $("#endDate").val(),
+    cover_link: coverURL,
+    detail_link: detailURL,
+    competition_type: $("#competition_type").val()
+  }
+  await fetch('/api/postChallenge', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'},
+    body: JSON.stringify(data),
+  });
+
+  alert("Form Uploaded Successfully");
+  $("#formBox").trigger("reset");
 }

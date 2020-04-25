@@ -1,5 +1,7 @@
-//hi5
+import { url } from "inspector";
 
+//hi5
+export{}
 $('.carousel').carousel({
     interval: false
 });
@@ -43,6 +45,45 @@ function commentTab()
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
 }
+async function submitComment() : Promise<any>{
+    let response = await fetch('/api/submitCommnet', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'},
+        body: JSON.stringify({}),
+    });
+    return response.json();
+}
+async function getUser() : Promise<any> { 
+    let response = await fetch('/api/getAccount', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'},
+        body: JSON.stringify({}),
+    });
+    return response.json();
+
+}
+
+async function addcomment(){
+    let com =  await submitComment();
+    let user =  getUser();
+    let comment = document.getElementById('tofill');
+    let fill = "<div class='row no-gutter comment-card'> " +
+    "<div id='profile-info' class='col-2'> " +
+      "<div class='d-flex justify-content-center'>" +
+        "<img src='pictures/defaultProfile.jpg' class='profile-picture' alt='Profile Picture'>" +
+      "</div>" +
+      "<div class='d-flex justify-content-center'>" +
+        "<h5>" + com.user_ID + "</h5>" +
+      "</div>" +
+    "</div>" +
+    "<div id='comment-body' class='col-10'> " +
+        "<p>"+ com.content + "</p>" +
+    "</div> "+
+"</div>";
+    comment!.innerHTML = fill;
+}
 
 async function load(challenge_ID) {
     let response = await fetch('/api/getChallenge', {
@@ -74,5 +115,88 @@ $(document).ready(async function() {
     let challenge = await load(challenge_ID);
     console.log(challenge);
     fillChallenge(challenge);
+    fillEntries(challenge_ID);
+    $(".entry-heart-img").click(function() {
+        $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
+        $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
+    })
 })
 
+async function getSignedRequest(file): Promise<string>{
+    let response = await fetch("/api/sign-s3?file-name="+file.name+"&file-type="+file.type, {
+        method: 'GET'
+    });
+    let res = await response.json();
+    await uploadFile(file, res.signedRequest, res.url);
+    return res.url;
+}
+
+async function uploadFile(file, signedRequest, url){
+    await fetch(signedRequest, {
+        method: 'PUT',
+        body: file
+    });
+}
+
+async function submitEntry(){
+    let files = (document.getElementById('entry-file-upload') as HTMLInputElement).files;
+    let urls: Array<Promise<string>> = [];
+    let file;
+    for(file of files!){
+        if(file == null){
+            return alert('No file selected.');
+          }
+         urls.push(getSignedRequest(file));
+    }
+
+    await Promise.all(urls).catch(err => { console.log(err); alert("Upload Failed"); return;});
+
+    let data = {
+        "user_ID": 1,
+        "urls": urls
+    };
+
+    await fetch('/api/submitEntry', {
+        method: 'POST',
+        body: JSON.stringify(data)
+    });
+    alert("Upload Successful");
+}
+
+function fillEntries(challenge_ID) {
+    for (let i = 0; i<8; i++) {
+        console.log("hi" + i);
+        $("#entry-tab-content").append(
+                "<div class='col-sm-12 col-md-6 col-lg-4 justify-content-center'>" +
+                    "<div class='entry-heart justify-content-center'>" +
+                        "<img class='entry-heart-img' src='pictures/outline_favorite_border_black_48dp.png'>" +
+                    "</div>" +
+                    "<div id='carouselExampleIndicators' class='carousel slide'>" +
+                        "<ol class='carousel-indicators'>" +
+                        "<li data-target='#carouselExampleIndicators' data-slide-to='0' class='active'></li>" +
+                        "<li data-target='#carouselExampleIndicators' data-slide-to='1'></li>" +
+                        "<li data-target='#carouselExampleIndicators' data-slide-to='2'></li>"+
+                        "</ol>"+
+                        "<div class='carousel-inner'>"+
+                        "<div class='carousel-item small-img-card active'>"+
+                            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='First slide'>"+
+                        "</div>"+
+                        "<div class='carousel-item small-img-card'>"+
+                            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Second slide'>"+
+                        "</div>"+
+                        "<div class='carousel-item small-img-card'>"+
+                            "<img class='d-block w-100' src='pictures/dailycardTest1.jpg' alt='Third slide'>"+
+                        "</div>"+
+                        "</div>"+
+                        "<a class='carousel-control-prev' href='#carouselExampleIndicators' role='button' data-slide='prev'>"+
+                        "<span class='carousel-control-prev-icon' aria-hidden='true'></span>"+
+                        "<span class='sr-only'>Previous</span>"+
+                        "</a>"+
+                        "<a class='carousel-control-next' href='#carouselExampleIndicators' role='button' data-slide='next'>"+
+                        "<span class='carousel-control-next-icon' aria-hidden='true'></span>"+
+                        "<span class='sr-only'>Next</span>"+
+                        "</a>"+
+                    "</div>"+
+                "</div>")
+    };
+}

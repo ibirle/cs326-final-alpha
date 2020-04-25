@@ -32,6 +32,9 @@ export class RoutingServer {
 		this.router.post('/voteFor', this.voteForHandler.bind(this));
 		this.router.post('/getVoteTotal', this.getVoteTotalHandler.bind(this));
 		this.router.post('/getAccount', this.getAccountHandler.bind(this));
+		this.router.post('/getAccount', this.getAccountHandler.bind(this));
+		this.router.post('/submitComment', this.submitCommentHandler.bind(this));
+		this.router.post('/postChallenge', this.postChallengeHandler.bind(this));
 		this.router.get('/sign-s3', this.signS3Handler.bind(this));
 		this.server.use('/api', this.router);
 	}
@@ -85,6 +88,21 @@ export class RoutingServer {
 		response.end();
 	}
 
+	private async submitCommentHandler(request, response) : Promise<void> {
+		let queryResponse = await this.db.submitComment(request.body.comment);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
+	}
+
+	private async postChallengeHandler(request, response) : Promise<void> {
+		let queryResponse = await this.db.postChallengeQuery(
+			request.body.recipe_desc, request.body.recipe_link, request.body.competition_name,
+			request.body.start_time, request.body.end_time, request.body.cover_link, request.body.detail_link, 
+			request.body.competition_type);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
+	}
+	
 	private async signS3Handler(req, res) : Promise<void> {
 		aws.config.region = 'us-east-1';
 		const s3 = new aws.S3();
