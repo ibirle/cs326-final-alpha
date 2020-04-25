@@ -58,6 +58,7 @@ export class RoutingServer {
 	}
 
 	private async submitEntryHandler(request, response) : Promise<void> {
+		console.log(request.body);
 		let queryResponse = await this.db.submitEntryQuery(request.body.user_ID, request.body.competition_ID, request.body.urls);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
