@@ -11,33 +11,33 @@ All of our requests are POST requests
 See database diagram for the object definitions
 
 1. /api/getAllCurrentChallenges
-..* Params: None
-..* Returns: Array of Competition objects
+* Params: None
+* Returns: Array of Competition objects
 2. /api/getChallenge
-..* Params: challengeID
-..* Returns: Returns one competition object with competition_id = challengeID 
+* Params: challengeID
+* Returns: Returns one competition object with competition_id = challengeID 
 3. /api/getEntries
-..* Params: challengeID
-..* Returns: Returns all entry objects with competition_id = challengeID
+* Params: challengeID
+* Returns: Returns all entry objects with competition_id = challengeID
 4. /api/getComments
-..* Params: challengeID
-..* Returns: Returns all comment objects with competition_id = challengeID
+* Params: challengeID
+* Returns: Returns all comment objects with competition_id = challengeID
 5. /api/submitEntry
-..* Params: user_ID, competition_ID, urls (Urls are a list of the urls to the images uploaded directly to aws S3)
-..* Returns: nothing
-..*Note: Inserts a new entry into the database with the above params
+* Params: user_ID, competition_ID, urls (Urls are a list of the urls to the images uploaded directly to aws S3)
+* Returns: nothing
+*Note: Inserts a new entry into the database with the above params
 6. /api/voteFor
-..* Params: entry_ID, user_ID, competition_ID
-..* Returns: nothing
-..*note: adds a vote in the database for the given entry with the given userID. Switches the vote if that user has already voted in this competition
+* Params: entry_ID, user_ID, competition_ID
+* Returns: nothing
+*note: adds a vote in the database for the given entry with the given userID. Switches the vote if that user has already voted in this competition
 7. /api/submitComment
-..* Params: comment_content, user_ID, competition_ID
-..* Returns: nothing
-..*note: adds a comment in the database that will be displayed in the given competition page with the username of the user_ID
+* Params: comment_content, user_ID, competition_ID
+* Returns: nothing
+*note: adds a comment in the database that will be displayed in the given competition page with the username of the user_ID
 8. /api/sign-s3
-..* Params: takes in a file signature of a file a user is trying to upload to aws S3
-..* Returns: url with signature to upload the previous image to
-..*note: This is used to validate files to allow users to directly upload images to aws S3. Gives an authorization for each image posted that S3 will except
+* Params: takes in a file signature of a file a user is trying to upload to aws S3
+* Returns: url with signature to upload the previous image to
+*note: This is used to validate files to allow users to directly upload images to aws S3. Gives an authorization for each image posted that S3 will except
 
 ![alt text](imagesms2/pic1.png)
 
@@ -76,20 +76,20 @@ Bake Off’s URL: https://bake-off-alpha.herokuapp.com/
 Each team member worked on a vertical chunk from front end down to the back end query. We helped each other throughout, but we listed who had the major contributions / was responsible for each part.
 
 1. /api/getAllCurrentChallenges
-..* Ian and Alex
+* Ian and Alex
 2. /api/getChallenge
-..* Alex
+* Alex
 3. /api/getEntries
-..* Alex
+* Alex
 4. /api/getComments
-..* Alain
+* Alain
 5. /api/submitEntry
-..* Ian
+* Ian
 6. /api/voteFor
-..* Alex
+* Alex
 7. /api/submitComment
-..* Alain
+* Alain
 8. /api/sign-s3
-..* Ian
+* Ian
 
 Connection to Heroku and AWS S3: Ian
