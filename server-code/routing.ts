@@ -93,7 +93,6 @@ export class RoutingServer {
 		const s3Params = {
 		  Bucket: S3_BUCKET,
 		  Key: fileName,
-		  Expires: 60,
 		  ContentType: fileType,
 		  ACL: 'public-read'
 		};
