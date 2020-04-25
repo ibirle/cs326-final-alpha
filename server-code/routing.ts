@@ -39,7 +39,7 @@ export class RoutingServer {
 	}
 
 	private async getChallengeHandler(request, response) : Promise<void> {
-		let queryResponse = await this.db.getChallengesQuery(request.body.challengeID);
+		let queryResponse = await this.db.getChallengeQuery(request.body.challengeID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
