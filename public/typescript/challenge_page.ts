@@ -44,46 +44,70 @@ function commentTab()
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
 }
-async function submitComment() : Promise<any>{
-    let response = await fetch('/api/submitCommnet', {
+
+async function submitComment(content) : Promise<any>{
+    let challenge_ID = parseInt(window.location.search.substring(13));
+    let data =
+    {
+        "content": content,
+        "user_ID": 1,
+        "competition_ID": challenge_ID
+    }
+    let response = await fetch('/api/submitComment', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'},
-        body: JSON.stringify({}),
+        body: JSON.stringify(data),
     });
     return response.json();
 }
-async function getUser() : Promise<any> { 
-    let response = await fetch('/api/getAccount', {
+
+async function addComment(){
+    let content = $("#input-comment-content").val();
+    await submitComment(content);
+}
+
+async function loadComments(){
+    let challenge_ID = parseInt(window.location.search.substring(13));
+    let data =
+    {
+        "competition_ID": challenge_ID
+    }
+    let response = await fetch('/api/getComments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'},
-        body: JSON.stringify({}),
+        body: JSON.stringify(data),
     });
-    return response.json();
 
+    let res = await response.json();
+    return res.rows;
 }
 
-async function addcomment(){
-    let com =  await submitComment();
-    let user =  getUser();
-    let comment = document.getElementById('tofill');
-    let fill = "<div class='row no-gutter comment-card'> " +
+async function fillComments(){
+    let comments = await loadComments();
+    let commentRow = $("#comment-tab-content");
+    for(let c of comments){
+        commentRow.prepend(createCommentObject(c));
+    }
+}
+
+function createCommentObject(comment){
+
+    return "<div class='row no-gutter comment-card'> " +
     "<div id='profile-info' class='col-2'> " +
       "<div class='d-flex justify-content-center'>" +
         "<img src='pictures/defaultProfile.jpg' class='profile-picture' alt='Profile Picture'>" +
       "</div>" +
       "<div class='d-flex justify-content-center'>" +
-        "<h5>" + com.user_ID + "</h5>" +
+        "<h5>" + comment.user_name + "</h5>" +
       "</div>" +
     "</div>" +
     "<div id='comment-body' class='col-10'> " +
-        "<p>"+ com.content + "</p>" +
+        "<p>"+ comment.content + "</p>" +
     "</div> "+
-"</div>";
-    comment!.innerHTML = fill;
+    "</div>";
 }
-
 async function load(challenge_ID) {
     let response = await fetch('/api/getChallenge', {
         method: 'POST',
@@ -119,6 +143,8 @@ $(document).ready(async function() {
         $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
         $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
     })
+
+    fillComments();
 })
 
 async function getSignedRequest(file): Promise<string>{
@@ -168,6 +194,7 @@ async function submitEntry(){
         body: JSON.stringify(data)
     }).catch(err => { console.log(err); alert("Upload Failed"); return;});
     alert("Upload Successful");
+    location.reload();
 }
 
 function fillEntries(challenge_ID) {

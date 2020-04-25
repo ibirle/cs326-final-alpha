@@ -40,50 +40,70 @@ function commentTab() {
     $("#submit-tab").removeClass("selected");
     $("#comment-tab").addClass("selected");
 }
-function submitComment() {
+function submitComment(content) {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch('/api/submitCommnet', {
+        let challenge_ID = parseInt(window.location.search.substring(13));
+        let data = {
+            "content": content,
+            "user_ID": 1,
+            "competition_ID": challenge_ID
+        };
+        let response = yield fetch('/api/submitComment', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify({}),
+            body: JSON.stringify(data),
         });
         return response.json();
     });
 }
-function getUser() {
+function addComment() {
     return __awaiter(this, void 0, void 0, function* () {
-        let response = yield fetch('/api/getAccount', {
+        let content = $("#input-comment-content").val();
+        yield submitComment(content);
+    });
+}
+function loadComments() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let challenge_ID = parseInt(window.location.search.substring(13));
+        let data = {
+            "competition_ID": challenge_ID
+        };
+        let response = yield fetch('/api/getComments', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
-            body: JSON.stringify({}),
+            body: JSON.stringify(data),
         });
-        return response.json();
+        let res = yield response.json();
+        return res.rows;
     });
 }
-function addcomment() {
+function fillComments() {
     return __awaiter(this, void 0, void 0, function* () {
-        let com = yield submitComment();
-        let user = getUser();
-        let comment = document.getElementById('tofill');
-        let fill = "<div class='row no-gutter comment-card'> " +
-            "<div id='profile-info' class='col-2'> " +
-            "<div class='d-flex justify-content-center'>" +
-            "<img src='pictures/defaultProfile.jpg' class='profile-picture' alt='Profile Picture'>" +
-            "</div>" +
-            "<div class='d-flex justify-content-center'>" +
-            "<h5>" + com.user_ID + "</h5>" +
-            "</div>" +
-            "</div>" +
-            "<div id='comment-body' class='col-10'> " +
-            "<p>" + com.content + "</p>" +
-            "</div> " +
-            "</div>";
-        comment.innerHTML = fill;
+        let comments = yield loadComments();
+        let commentRow = $("#comment-tab-content");
+        for (let c of comments) {
+            commentRow.prepend(createCommentObject(c));
+        }
     });
+}
+function createCommentObject(comment) {
+    return "<div class='row no-gutter comment-card'> " +
+        "<div id='profile-info' class='col-2'> " +
+        "<div class='d-flex justify-content-center'>" +
+        "<img src='pictures/defaultProfile.jpg' class='profile-picture' alt='Profile Picture'>" +
+        "</div>" +
+        "<div class='d-flex justify-content-center'>" +
+        "<h5>" + comment.user_name + "</h5>" +
+        "</div>" +
+        "</div>" +
+        "<div id='comment-body' class='col-10'> " +
+        "<p>" + comment.content + "</p>" +
+        "</div> " +
+        "</div>";
 }
 function load(challenge_ID) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -121,6 +141,7 @@ $(document).ready(function () {
             $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
             $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
         });
+        fillComments();
     });
 });
 function getSignedRequest(file) {
@@ -173,6 +194,7 @@ function submitEntry() {
             body: JSON.stringify(data)
         }).catch(err => { console.log(err); alert("Upload Failed"); return; });
         alert("Upload Successful");
+        location.reload();
     });
 }
 function fillEntries(challenge_ID) {

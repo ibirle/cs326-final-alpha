@@ -42,9 +42,6 @@ export class Database {
     }
 
     public async submitEntryQuery(user_ID, competition_ID, urls) : Promise<Object> { // sumbit entry into entry table, key is entry 
-        console.log(user_ID);
-        console.log(competition_ID);
-        console.log(urls);
         return this.client.query('INSERT INTO entry("user_ID", "competition_ID", entry_pics) VALUES($1, $2, $3);', [user_ID, competition_ID, urls]).catch(err => { console.log(err);});
     }
 
@@ -84,12 +81,12 @@ export class Database {
             }
         });
     }
-    public async submiComment(key: string) : Promise<Object> { // sumbit comment into comment table, key is comment 
-        return this.client.query("INSERT INTO comment VALUES ('" + key + "';", (err, res) => {
-            if (err) throw err;
-            for (let row of res.rows) {
-              console.log(JSON.stringify(row));
-            }
-        });
+
+    public async submitCommentQuery(content, competition_ID, user_ID) : Promise<Object> { // sumbit comment into comment table, key is comment 
+        return this.client.query('INSERT INTO comment("content", "competition_ID", "user_ID") VALUES($1, $2, $3);', [content, competition_ID, user_ID]).catch(err => { console.log(err);});
+    }
+
+    public async getCommentsQuery(competition_ID) : Promise<Object> { // sumbit comment into comment table, key is comment 
+        return this.client.query('SELECT * FROM prod.comment INNER JOIN prod.user on prod.comment."user_ID" = prod.user."user_ID" WHERE "competition_ID" = $1;', [competition_ID]).catch(err => { console.log(err);});
     }
 }
