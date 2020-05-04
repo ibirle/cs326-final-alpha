@@ -76,13 +76,14 @@ function createDailyCard(challenge): JQuery<HTMLElement>{
         "class": 'col-sm-12 col-md-6 col-lg-4'
     });
 
-    let link = $('<a/>', {
+    /*let link = $('<a/>', {
         "href": '/challenge_page.html?challengeID='+challenge.competition_ID,
         "class": "text-dark"
-    });
+    });*/
 
     let card = $('<div/>', {
-        "class": 'card daily-card'
+        "class": 'card daily-card',
+        "onClick": "openLink(\'" + challenge.competition_ID + "\')"
     });
 
     let img = $('<img/>', {
@@ -98,7 +99,8 @@ function createDailyCard(challenge): JQuery<HTMLElement>{
     title.append("<h5>"+ challenge.competition_name + "</h5>");
     card.append(img);
     card.append(title);
-    link.append(card);
-    col.append(link);
+    //link.append(card);
+    //col.append(link);
+    col.append(card);
     return col;
 }
