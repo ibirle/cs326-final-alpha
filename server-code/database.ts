@@ -9,7 +9,7 @@ export class Database {
         console.log(process.env.DATABASE_URL);
 
         this.client = new Client({
-            connectionString: process.env.DATABASE_URL,
+            connectionString: process.env.DATABASE_URL || "postgres://tjtawurzxcjeno:f63354efa372eef52c19d18a6101f0e573a3fc225f8e39a6ccb9bf7f44324b33@ec2-54-152-175-141.compute-1.amazonaws.com:5432/dah746ou0eons",
             ssl: true,
         });
 
