@@ -19,6 +19,10 @@ export class Database {
         })();
     }
 
+    public async getChallengeVoteQuery(user_ID: string, competition_ID: string) {
+        return this.client.query('SELECT * FROM vote WHERE "competition_ID" = $1 AND "user_ID" = $2;', [competition_ID, user_ID] ).catch(err => { console.log(err);});
+    }
+
     public async getAllCurrentChallengesQuery() : Promise<Object> { //get all challenges from competition table
         return this.client.query("SELECT * FROM competition").catch(err => { console.log(err);});
     }

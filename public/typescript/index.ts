@@ -48,15 +48,18 @@ function separateChals(challenges) {
 
 function fillChallengesWeekly(challenges) {
     for (let i = 0; i < challenges.length; i++) {
-        $("#weekly").append( "<a href='/challenge_page.html?challengeID=" + challenges[i].competition_ID + "' class='text-dark'>" +
-                                    "<div id='weeklyCard' class='card'>" +
+        $("#weekly").append(        '<div onClick="openLink(\'' + challenges[i].competition_ID + '\')" id="weeklyCard" class="card">' +
                                         "<img src='" + challenges[i].cover_link + "' class='card-img img-fluid wide-img-card' alt='Picture of bread'>" +
                                         "<div class='centered'>" +
                                             "<h5>" + challenges[i].competition_name + "</h5>" +
                                         "</div>" +
-                                    "</div>" +
-                                "</a>");
+                                    "</div>");
     }
+}
+
+function openLink(competition_ID) {
+    let userID = $("#userIDSelect option:selected").attr("userID");
+    window.location.href=("/challenge_page.html?challengeID=" + competition_ID + "&userID=" + userID);
 }
 
 function fillChallengesDaily(challenges) {
@@ -73,13 +76,14 @@ function createDailyCard(challenge): JQuery<HTMLElement>{
         "class": 'col-sm-12 col-md-6 col-lg-4'
     });
 
-    let link = $('<a/>', {
+    /*let link = $('<a/>', {
         "href": '/challenge_page.html?challengeID='+challenge.competition_ID,
         "class": "text-dark"
-    });
+    });*/
 
     let card = $('<div/>', {
-        "class": 'card daily-card'
+        "class": 'card daily-card',
+        "onClick": "openLink(\'" + challenge.competition_ID + "\')"
     });
 
     let img = $('<img/>', {
@@ -95,7 +99,8 @@ function createDailyCard(challenge): JQuery<HTMLElement>{
     title.append("<h5>"+ challenge.competition_name + "</h5>");
     card.append(img);
     card.append(title);
-    link.append(card);
-    col.append(link);
+    //link.append(card);
+    //col.append(link);
+    col.append(card);
     return col;
 }
