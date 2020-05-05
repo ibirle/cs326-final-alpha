@@ -152,14 +152,15 @@ $(document).ready(function () {
         fillEntries(entries);
         $(".entry-heart-img").click(function () {
             let entryID = $(this).attr("id");
-            voteForEntry(challenge_ID, entryID);
+            let userID = getParameterByName("userID");
+            voteForEntry(challenge_ID, entryID, userID);
             $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
             $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
         });
         fillComments();
     });
 });
-function voteForEntry(challenge_ID, entry_ID) {
+function voteForEntry(challenge_ID, entry_ID, user_ID) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch('/api/voteFor', {
             method: 'POST',
@@ -168,7 +169,7 @@ function voteForEntry(challenge_ID, entry_ID) {
             },
             body: JSON.stringify({ "challengeID": challenge_ID,
                 "entry_ID": entry_ID,
-                "user_ID": 1 }),
+                "user_ID": user_ID })
         });
         return response.json();
     });
