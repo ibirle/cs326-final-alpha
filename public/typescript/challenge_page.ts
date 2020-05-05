@@ -46,11 +46,12 @@ function commentTab()
 }
 
 async function submitComment(content) : Promise<any>{
-    let challenge_ID = parseInt(window.location.search.substring(13));
+    let challenge_ID = getParameterByName("challenegeID");
+    let userID = getParameterByName("userID");
     let data =
     {
         "content": content,
-        "user_ID": 1,
+        "user_ID": userID,
         "competition_ID": challenge_ID
     }
     let response = await fetch('/api/submitComment', {
@@ -68,7 +69,7 @@ async function addComment(){
 }
 
 async function loadComments(){
-    let challenge_ID = parseInt(window.location.search.substring(13));
+    let challenge_ID = getParameterByName("challengeID");
     let data =
     {
         "competition_ID": challenge_ID
@@ -144,7 +145,7 @@ function fillChallenge(challenge) {
 }
 
 $(document).ready(async function() {
-    let challenge_ID = parseInt(window.location.search.substring(13));
+    let challenge_ID = getParameterByName("challenegeID");
     let challenge = await load(challenge_ID);
     let entries = await loadEntries(challenge_ID);
     fillChallenge(challenge);
@@ -205,10 +206,11 @@ async function submitEntry(){
         console.log(url);
         urls.push(url);
     }
-    let challenge_ID = parseInt(window.location.search.substring(13));
+    let challenge_ID = getParameterByName("challenegeID");
     console.log(challenge_ID);
+    let userID = getParameterByName("userID");
     let data = {
-        "user_ID": 1,
+        "user_ID": userID,
         "competition_ID": challenge_ID,
         "urls": urls
     };
@@ -292,4 +294,14 @@ function createEntries(entries) {
                 "</div>");
     }
     return entryStuff;
+}
+
+function getParameterByName(name) {
+    let url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
