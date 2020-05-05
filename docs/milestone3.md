@@ -11,7 +11,7 @@ As you will probably be able to tell, we just added on to our previous milestone
 * Added Descriptions section
 * Added a new api to APIs of projects for getting vote info
 * Note above user interaction for how users are implimented
-* Addiitons to division of labor
+* Additions to division of labor
 
 # Database fields
 
