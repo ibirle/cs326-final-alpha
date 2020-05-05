@@ -5,6 +5,14 @@ Alain Duplan, alain-duplan
 Alex Winter, alexmwinter
 Ian Birle, ibirle
 
+# Changes from Milestone2
+
+As you will probably be able to tell, we just added on to our previous milestone 2 for this milestone since we had done the database setup/queries already. So the main changes we made for this milestone are as follows:
+* Added Descriptions section
+* Added a new api to APIs of projects for getting vote info
+* Note above user interaction for how users are implimented
+* Addiitons to division of labor
+
 # Descriptions
 
 Implemented preset "users" that will utilaize the functionalities of the website.
@@ -14,31 +22,34 @@ Implemented preset "users" that will utilaize the functionalities of the website
 All of our requests are POST requests
 See database diagram for the object definitions
 
-1. /api/getAllCurrentChallenges
+1. /api/getChallengeVote
+* Params: user_ID, challenge_ID
+* Returns: Array of the vote informaton from the vote table
+2. /api/getAllCurrentChallenges
 * Params: None
 * Returns: Array of Competition objects
-2. /api/getChallenge
+3. /api/getChallenge
 * Params: challengeID
 * Returns: Returns one competition object with competition_id = challengeID 
-3. /api/getEntries
+4. /api/getEntries
 * Params: challengeID
 * Returns: Returns all entry objects with competition_id = challengeID
-4. /api/getComments
+5. /api/getComments
 * Params: challengeID
 * Returns: Returns all comment objects with competition_id = challengeID
-5. /api/submitEntry
+6. /api/submitEntry
 * Params: user_ID, competition_ID, urls (Urls are a list of the urls to the images uploaded directly to aws S3)
 * Returns: nothing
 *Note: Inserts a new entry into the database with the above params
-6. /api/voteFor
+7. /api/voteFor
 * Params: entry_ID, user_ID, competition_ID
 * Returns: nothing
 *note: adds a vote in the database for the given entry with the given userID. Switches the vote if that user has already voted in this competition
-7. /api/submitComment
+8. /api/submitComment
 * Params: comment_content, user_ID, competition_ID
 * Returns: nothing
 *note: adds a comment in the database that will be displayed in the given competition page with the username of the user_ID
-8. /api/sign-s3
+9. /api/sign-s3
 * Params: takes in a file signature of a file a user is trying to upload to aws S3
 * Returns: url with signature to upload the previous image to
 *note: This is used to validate files to allow users to directly upload images to aws S3. Gives an authorization for each image posted that S3 will except
@@ -48,6 +59,8 @@ See database diagram for the object definitions
 Database Diagram
 
 # Screenshots of 4 client interactions
+
+Updates from Milestone 2:
 
 NOTE: ONLY THE FIRST WEEKLY CHALLENGE HAS DATA THAT IS LOADED IN FROM THE BACK END. IT IS SET UP TO WORK, BUT ONLY THAT CHALLENGE HAS ANY DATA IN IT.
 
@@ -95,5 +108,7 @@ Each team member worked on a vertical chunk from front end down to the back end 
 * Alain
 8. /api/sign-s3
 * Ian
+9. /api/getChallengeVote
+* Ian, Alex, and Alain
 
 Connection to Heroku and AWS S3: Ian
