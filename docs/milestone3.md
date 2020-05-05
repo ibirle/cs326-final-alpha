@@ -13,7 +13,42 @@ As you will probably be able to tell, we just added on to our previous milestone
 * Note above user interaction for how users are implimented
 * Addiitons to division of labor
 
-# Descriptions
+# Database fields
+
+![alt text](imagesms3/pic1.png)
+
+1. competition table
+* competition_ID: primary key auto incremented id for the competition
+* recipe_desc: description of the recipe fvor the competition
+* recipe_link: Link to the recipe
+* competition_name: name of the competition
+* cover_link: link to the image to be used on the home page of the website
+* detail_link: link to the image to be used on the competition page
+
+2. user table
+* user_ID: primary key auto incremented id for the user
+* user_name: user name
+* password_hash: unused, but for authentication if needed
+* name: name of user
+* email: email of user
+* skill_level: number 1 - 5 of user's skill level in cooking
+
+3. vote table
+* competition_ID: competition the vote is being cast in.
+* entry_ID: the entry that the user is voting for
+* user_ID: the user that is casting this vote
+
+4. comment table
+* comment_ID: primary key auto incremented id for the comment
+* user_ID: user who is commenting
+* competition_ID: the copetition being commented on
+* content: the actual text of the comment
+
+5. entry table
+* entry_ID: auto incremented id for the competition
+* competition_ID: the competition being entered
+* user_ID: the user entering the competition
+* entry_pics: an stringified array of url's to the images for this entry
 
 # APIs of Project
 All of our requests are POST requests
@@ -51,9 +86,8 @@ See database diagram for the object definitions
 * Returns: url with signature to upload the previous image to
 *note: This is used to validate files to allow users to directly upload images to aws S3. Gives an authorization for each image posted that S3 will except
 
-![alt text](imagesms2/pic1.png)
 
-Database Diagram
+
 
 # Screenshots of 4 client interactions
 
@@ -61,23 +95,23 @@ Updates from Milestone 2:
 
 NOTE: ONLY THE FIRST WEEKLY CHALLENGE HAS DATA THAT IS LOADED IN FROM THE BACK END. IT IS SET UP TO WORK, BUT ONLY THAT CHALLENGE HAS ANY DATA IN IT.
 
-![alt text](imagesms2/pic2.png)
+![alt text](imagesms3/pic2.png)
 
 A place for users to view all current challenges they can participate in or view. Clicking on one takes them to a Challenge specific page that goes more in depth.
 
-![alt text](imagesms2/pic3.png)
+![alt text](imagesms3/pic3.png)
 
 This is where the user will be brought to after clicking on a specific challenge from the previous index.html page. Here they will see a description of the challenge as well as a link to an outside resource for the recipe.
 
-![alt text](imagesms2/pic4.png)
+![alt text](imagesms3/pic4.png)
 
 Below the challenge at the top of the page there are three tabs to choose from the first of which is entries. These are all current entries that have been submitted for the challenge above. The user can scroll through each of an entry’s carousel images and then choose to like any one of the entries by clicking on the empty heart that shows up on hover to cast their vote as to which entrant is their favorite.
 
-![alt text](imagesms2/pic5.png)
+![alt text](imagesms3/pic5.png)
 
 In this middle tab of the challenge page users are able to submit pictures of their entry for other users to vote on. They can select images with the button on the left and upload them with the button on the right.
 
-![alt text](imagesms2/pic6.png)
+![alt text](imagesms3/pic6.png)
 
 The right tab of the challenge page is for user comments on the challenge. This is for tips and tricks or just general comments on the recipe as a whole. Not too specific on this one.
 
