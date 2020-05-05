@@ -57,7 +57,7 @@ Database Diagram
 
 # Screenshots of 4 client interactions
 
-Updates from Milestone 2:
+Updates from Milestone 2: For this milestone we added multiple users to select from in the upperleft corner of the screen on index.html in order to show off that multiple users interact with the back end correctly. Comments, entries, and votes will be tied to the username as intended. Comments will show the correct username based on which account posted them, and a user's vote on a challenge entry will be seen if they refresh or re-enter the page. This was done like this in order to show off the back end implimentation with out having to implement user authentication. 
 
 NOTE: ONLY THE FIRST WEEKLY CHALLENGE HAS DATA THAT IS LOADED IN FROM THE BACK END. IT IS SET UP TO WORK, BUT ONLY THAT CHALLENGE HAS ANY DATA IN IT.
 
