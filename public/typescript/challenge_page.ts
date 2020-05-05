@@ -154,7 +154,8 @@ $(document).ready(async function() {
 
     $(".entry-heart-img").click(function() {
         let entryID = $(this).attr("id")
-        voteForEntry(challenge_ID, entryID);
+        let userID = getParameterByName("userID");
+        voteForEntry(challenge_ID, entryID, userID);
         $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
         $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
     })
@@ -162,14 +163,14 @@ $(document).ready(async function() {
     fillComments();
 })
 
-async function voteForEntry(challenge_ID, entry_ID) {
+async function voteForEntry(challenge_ID, entry_ID, user_ID) {
     let response = await fetch('/api/voteFor', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json;charset=utf-8'},
         body: JSON.stringify({"challengeID": challenge_ID,
                               "entry_ID": entry_ID,
-                              "user_ID": 1}),
+                              "user_ID": user_ID})
     });
     return response.json();
 }
