@@ -23,7 +23,7 @@ export class RoutingServer {
 		this.server.use(express.static('public'));
 		this.server.use(express.json());
 
-
+		this.router.post('/getChallengeVote', this.getChallengeVoteHandler.bind(this));
 		this.router.post('/getAllCurrentChallenges', this.getAllCurrentChallengesHandler.bind(this));
 		this.router.post('/getChallenge', this.getChallengeHandler.bind(this));
 		this.router.post('/getEntries', this.getEntriesHandler.bind(this));
@@ -37,6 +37,12 @@ export class RoutingServer {
 		this.router.post('/postChallenge', this.postChallengeHandler.bind(this));
 		this.router.get('/sign-s3', this.signS3Handler.bind(this));
 		this.server.use('/api', this.router);
+	}
+
+	private async getChallengeVoteHandler(request, response) : Promise<void> {
+		let queryResponse = await this.db.getAllCurrentChallengesQuery(request.body.user_ID, request.body.competition_ID);
+		response.write(JSON.stringify(queryResponse));
+		response.end();
 	}
 
 	private async getAllCurrentChallengesHandler(request, response) : Promise<void> {
