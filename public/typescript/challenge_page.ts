@@ -146,6 +146,7 @@ function fillChallenge(challenge) {
 
 $(document).ready(async function() {
     let challenge_ID = getParameterByName("challengeID");
+    let userID = getParameterByName("userID");
     let challenge = await load(challenge_ID);
     let entries = await loadEntries(challenge_ID);
     fillChallenge(challenge);
@@ -154,14 +155,31 @@ $(document).ready(async function() {
 
     $(".entry-heart-img").click(function() {
         let entryID = $(this).attr("id")
-        let userID = getParameterByName("userID");
         voteForEntry(challenge_ID, entryID, userID);
         $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
         $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
     })
 
+    let votedFor = await getChallengeVote(challenge_ID, userID);
+
+    if (votedFor.rows[0]) {
+        let votedHeart = $("#" + votedFor.rows[0].entry_ID);
+        votedHeart.click(); 
+    }
+
     fillComments();
 })
+
+async function getChallengeVote(challenge_ID, user_ID) {
+    let response = await fetch('/api/getChallengeVote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'},
+        body: JSON.stringify({"competition_ID": challenge_ID,
+                              "user_ID": user_ID})
+    });
+    return response.json();
+}
 
 async function voteForEntry(challenge_ID, entry_ID, user_ID) {
     let response = await fetch('/api/voteFor', {

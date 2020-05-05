@@ -146,20 +146,45 @@ function fillChallenge(challenge) {
 $(document).ready(function () {
     return __awaiter(this, void 0, void 0, function* () {
         let challenge_ID = getParameterByName("challengeID");
+        let userID = getParameterByName("userID");
         let challenge = yield load(challenge_ID);
         let entries = yield loadEntries(challenge_ID);
         fillChallenge(challenge);
         fillEntries(entries);
         $(".entry-heart-img").click(function () {
             let entryID = $(this).attr("id");
+<<<<<<< HEAD
             let userID = getParameterByName("userID");
+=======
+>>>>>>> 732cffe5d7fe3f1f1dcfa4b21118b64c0f004641
             voteForEntry(challenge_ID, entryID, userID);
             $(".entry-heart-img-voted").attr("src", "pictures/outline_favorite_border_black_48dp.png").addClass("entry-heart-img").removeClass("entry-heart-img-voted");
             $(this).attr("src", "pictures/outline_favorite_black_48dp.png").addClass("entry-heart-img-voted").removeClass("entry-heart-img");
         });
+        let votedFor = yield getChallengeVote(challenge_ID, userID);
+        if (votedFor.rows[0]) {
+            let votedHeart = $("#" + votedFor.rows[0].entry_ID);
+            votedHeart.click();
+        }
         fillComments();
     });
 });
+<<<<<<< HEAD
+=======
+function getChallengeVote(challenge_ID, user_ID) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let response = yield fetch('/api/getChallengeVote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({ "competition_ID": challenge_ID,
+                "user_ID": user_ID })
+        });
+        return response.json();
+    });
+}
+>>>>>>> 732cffe5d7fe3f1f1dcfa4b21118b64c0f004641
 function voteForEntry(challenge_ID, entry_ID, user_ID) {
     return __awaiter(this, void 0, void 0, function* () {
         let response = yield fetch('/api/voteFor', {
