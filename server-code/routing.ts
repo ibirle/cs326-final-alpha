@@ -40,7 +40,7 @@ export class RoutingServer {
 	}
 
 	private async getChallengeVoteHandler(request, response) : Promise<void> {
-		let queryResponse = await this.db.getAllCurrentChallengesQuery(request.body.user_ID, request.body.competition_ID);
+		let queryResponse = await this.db.getChallengeVoteQuery(request.body.user_ID, request.body.competition_ID);
 		response.write(JSON.stringify(queryResponse));
 		response.end();
 	}
