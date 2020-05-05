@@ -46,7 +46,7 @@ function commentTab()
 }
 
 async function submitComment(content) : Promise<any>{
-    let challenge_ID = getParameterByName("challenegeID");
+    let challenge_ID = getParameterByName("challengeID");
     let userID = getParameterByName("userID");
     let data =
     {
@@ -145,7 +145,7 @@ function fillChallenge(challenge) {
 }
 
 $(document).ready(async function() {
-    let challenge_ID = getParameterByName("challenegeID");
+    let challenge_ID = getParameterByName("challengeID");
     let challenge = await load(challenge_ID);
     let entries = await loadEntries(challenge_ID);
     fillChallenge(challenge);
@@ -206,7 +206,7 @@ async function submitEntry(){
         console.log(url);
         urls.push(url);
     }
-    let challenge_ID = getParameterByName("challenegeID");
+    let challenge_ID = getParameterByName("challengeID");
     console.log(challenge_ID);
     let userID = getParameterByName("userID");
     let data = {

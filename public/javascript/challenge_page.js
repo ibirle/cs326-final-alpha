@@ -42,10 +42,11 @@ function commentTab() {
 }
 function submitComment(content) {
     return __awaiter(this, void 0, void 0, function* () {
-        let challenge_ID = parseInt(window.location.search.substring(13));
+        let challenge_ID = getParameterByName("challengeID");
+        let userID = getParameterByName("userID");
         let data = {
             "content": content,
-            "user_ID": 1,
+            "user_ID": userID,
             "competition_ID": challenge_ID
         };
         let response = yield fetch('/api/submitComment', {
@@ -66,7 +67,7 @@ function addComment() {
 }
 function loadComments() {
     return __awaiter(this, void 0, void 0, function* () {
-        let challenge_ID = parseInt(window.location.search.substring(13));
+        let challenge_ID = getParameterByName("challengeID");
         let data = {
             "competition_ID": challenge_ID
         };
@@ -144,7 +145,7 @@ function fillChallenge(challenge) {
 }
 $(document).ready(function () {
     return __awaiter(this, void 0, void 0, function* () {
-        let challenge_ID = parseInt(window.location.search.substring(13));
+        let challenge_ID = getParameterByName("challengeID");
         let challenge = yield load(challenge_ID);
         let entries = yield loadEntries(challenge_ID);
         fillChallenge(challenge);
@@ -207,10 +208,11 @@ function submitEntry() {
             console.log(url);
             urls.push(url);
         }
-        let challenge_ID = parseInt(window.location.search.substring(13));
+        let challenge_ID = getParameterByName("challengeID");
         console.log(challenge_ID);
+        let userID = getParameterByName("userID");
         let data = {
-            "user_ID": 1,
+            "user_ID": userID,
             "competition_ID": challenge_ID,
             "urls": urls
         };
@@ -281,4 +283,14 @@ function createEntries(entries) {
             "</div>");
     }
     return entryStuff;
+}
+function getParameterByName(name) {
+    let url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'), results = regex.exec(url);
+    if (!results)
+        return null;
+    if (!results[2])
+        return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
