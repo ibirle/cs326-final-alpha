@@ -7,6 +7,9 @@ Ian Birle, ibirle
 
 # Descriptions
 
+Implemented preset "users" that will utilaize the functionalities of the website.
+
+
 # APIs of Project
 All of our requests are POST requests
 See database diagram for the object definitions
