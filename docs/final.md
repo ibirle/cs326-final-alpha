@@ -116,7 +116,7 @@ Implemented preset "users" that will utilaize the functionalities of the website
 
 # URL Routes/Mappings
 
-Since we did not complete Authentication we really only have 2 URL Routes. One for the index page, and then one for the challenge pages.
+Since we did not complete Authentication we really only have 2 URL Routes. One for the index page, and then one for the challenge pages. Eventhough there are only two actual pages, we have a tab system on the challenge page that makes it function as 3 or 4 pages.
 
 The front index page will show the same info based on data it pulls from the back end, but the challenge page uses the query section of the URL to render the page.
 
