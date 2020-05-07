@@ -198,7 +198,7 @@ Each team member worked on a vertical chunk from front end down to the back end 
 
 Connection to Heroku and AWS S3: Ian
 
-# Division of labor
+# Conclusion
 
 Overall we learned a lot by creating this website. We found that a lot of the things we learned about front end didn't make sense until we started using it in our own project. The first big challenge we had was creating the column layouts on the index page. We had to learn how the boostrap columns work which isn't intuitive at first. After that we want things to line up and this took a good understanding of borders, margins and paddings. Additionally we had problems with the column when we used different sized images. We solved this by editing all the admin created images before uploading them to the website. The next challenge we had was generating the html elements with data we inserted. This was challengeing, but it was easy to replicate once we create one element. Lastly the hardest part was uploading images. Heroku had a pretty good guide on their site, but we had to convert the code to use async/await. Additionally it was hard to debug since Amazon S3 didn't return the most helpful things in it's responses. In the end we had some permission issues on S3, but it worked smoothly after that. 
 
