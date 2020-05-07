@@ -9,8 +9,8 @@
 BakeOff is a baking and cooking challenge website. Users can pick between different recipes and submit pictures of their creations to the website. They compete against other users making the same recipe. Users can then vote on which submission looks the best. The goal is to get bakers and cooks together making the same recipe. The comment section allows these users to talk and share their successes and mistakes. In the end we hope to bring people together around a collective hobby.
 
 # Team Members:
-Alain Duplan, alain-duplan
-Alex Winter, alexmwinter
+Alain Duplan, alain-duplan  
+Alex Winter, alexmwinter  
 Ian Birle, ibirle
 
 # User Interface
@@ -116,7 +116,15 @@ Implemented preset "users" that will utilaize the functionalities of the website
 
 # URL Routes/Mappings
 
-placeholder
+Since we did not complete Authentication we really only have 2 URL Routes. One for the index page, and then one for the challenge pages. Eventhough there are only two actual pages, we have a tab system on the challenge page that compacts a lot of functionality into one page.
+
+The front index page will show the same info based on data it pulls from the back end, but the challenge page uses the query section of the URL to render the page.
+
+URL: https://bake-off-alpha.herokuapp.com/challenge_page.html?challengeID=#&userID=#
+
+The # in the url above is a placeholder for the challengeID and userID that are decided based on the username and challenege selected from the front page.
+
+Refer to the API section for information regarding their routes.
 
 # Authentication
 
