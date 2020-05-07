@@ -6,7 +6,7 @@
 
 # Overview
 
-placeholder
+BakeOff is a baking and cooking challenge website. Users can pick between different recipes and submit pictures of their creations to the website. They compete against other users making the same recipe. Users can then vote on which submission looks the best. The goal is to get bakers and cooks together making the same recipe. The comment section allows these users to talk and share their successes and mistakes. In the end we hope to bring people together around a collective hobby.
 
 # Team Members:
 Alain Duplan, alain-duplan
