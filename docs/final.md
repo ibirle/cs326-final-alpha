@@ -81,7 +81,7 @@ See database diagram for the object definitions
 
 1. competition table
 * competition_ID: primary key auto incremented id for the competition
-* recipe_desc: description of the recipe fvor the competition
+* recipe_desc: description of the recipe for the competition
 * recipe_link: Link to the recipe
 * competition_name: name of the competition
 * cover_link: link to the image to be used on the home page of the website
